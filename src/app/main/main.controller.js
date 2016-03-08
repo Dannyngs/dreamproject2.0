@@ -62,7 +62,7 @@ require([
           
          $http({
                   method: 'POST',
-                  url: 'http://192.168.1.147:801/api/scores',
+                  url: 'http://football-back-dev.ap-southeast-1.elasticbeanstalk.com/api/scores',
                 data:{url:'http://score.nowscore.com/odds/match.aspx?id='+race[0]}
                 }).then(function successCallback(rs) {
                         var response=rs.data;
