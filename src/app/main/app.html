@@ -1,0 +1,31 @@
+  <!-- works section -->
+              <section class="works-section">
+                <!-- section background -->
+                <div class="bg-container-static"></div>
+                  <!-- end section background -->
+
+                  <!-- half overlay -->
+                  <!-- end half overlay -->
+                                       
+
+                  <!-- content -->
+                  <div class="works-container col-md-10 col-md-offset-1 col-sm-12">
+                                        
+   
+                    <!-- work 1 -->
+                      <table >
+                          <tr><td>賽事</td><td>聯賽</td><td>時間</td><td>分析</td></tr>
+                      <tr ng-repeat="race in list">
+                          <td><h6>{{race[5]}} - {{race[8]}}</h6> </td>
+                                <td> <p>{{league[race[1]][2]}}</p></td>
+                                <td> <p>{{race[10]}}</p></td>
+                                 <td><button  class="button button-green button-tiny" ng-click="getit(race)">分析</button></td>
+                    </tr>
+                      
+                      </table>
+                     
+                      <!-- end work 1 -->
+                  </div>
+                  <!-- end content -->
+              </section>
+              <!-- end works section -->
