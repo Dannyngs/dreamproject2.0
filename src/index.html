@@ -119,10 +119,130 @@
         </nav>
         <!-- end menu (visible on small devices) -->
 
-        <!-- data panel popup -->      
-      <div ng-include="'app/dataPanel.html'"></div>
-      <div ng-include="'app/loginPanel.html'"></div>
-        <!-- data panel popup -->
+             
+            <!--------------------------------------------------------------------- Data Panel -->
+<div   ng-class="{'is-visible':dataPanelOpened}" class="subscribe-popup col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 col-xs-12">
+        	<!-- close button -->
+            <a ng-click="closeDataPanel()" class="close-button hide-subscribe">
+            	<i class="icon fa fa-close"></i>
+            </a>
+            <!-- end close button -->
+
+        	<!-- content -->
+            <div class="content col-xs-12">
+            	<!-- title -->
+                <h4>{{home}} - {{away}}</h4>
+                <!-- end title -->
+
+               
+                <p >{{resultText}}</p>
+                 <!-- desc -->
+                <p class="desc mrg-top-sm"></p>
+                <!-- end desc -->
+                
+                
+                <!-- data panel -->
+                
+                <div class="dataPanel" ng-show="resultsShown">
+                 <div class="col-lg-5 col-lg-offset-1">
+        <canvas  id="doughnut" class="chart chart-doughnut"
+  chart-data="data" chart-labels="labels" chart-legend="true">
+</canvas>
+               
+            
+</div>
+                <div class="col-lg-5 ">
+                <canvas id="line" class="chart chart-line" chart-data="odds_max_dt"
+  chart-labels="odds_max_lb" chart-legend="true" chart-series="series_max"
+    >
+</canvas >  
+                    </div>
+                <div class="col-lg-5 col-lg-offset-1 no-pad">
+                <canvas id="line" class="chart chart-line" chart-data="odds_min_dt"
+  chart-labels="odds_min_lb" chart-legend="true" chart-series="series_min"
+    >
+</canvas >  
+                    </div>
+                <div class="col-lg-5 no-pad">
+                <canvas id="line" class="chart chart-line" chart-data="odds_avg_dt"
+  chart-labels="odds_avg_lb" chart-legend="true" chart-series="series_avg"
+    >
+</canvas >  
+                    </div>
+                </div>
+               
+                
+                <!-- end data panel -->
+            </div>
+            <!-- end content -->
+        </div>      <div ng-include="'app/loginPanel.html'"></div>
+       <!-- Data Panel -------------------------------------------------------------------------------------------------------->
+      
+                  <!--------------------------------------------------------------------- Login Panel -->
+<div   ng-class="{'is-visible':loginOpened}" class="subscribe-popup col-lg-4 col-lg-offset-4 col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 col-xs-12">
+        	<!-- close button -->
+            <a ng-click="closeLoginPanel()" class="close-button hide-subscribe">
+            	<i class="icon fa fa-close"></i>
+            </a>
+            <!-- end close button -->
+
+        	<!-- content -->
+            <div class="content col-xs-12">
+            	<!-- title -->
+                <h4>Dream Project Login</h4>
+                <!-- end title -->
+
+                <!-- desc -->
+                <div class="preloader-container">
+        	<div class="content-container">
+                <span class="pulse-loader"></span>
+
+                <h6 class="preloader-text">LOADING</h6>
+            </div>
+        </div>
+                <p class="desc mrg-top-sm">{{loginmsg}}</p>
+                <!-- end desc -->
+
+                <!-- data panel -->
+                <div class="subscribe-form-container col-xs-12 no-pad">
+                	<form class="subscribe-form" >
+                		<div class="col-xs-12 no-pad">
+                			<div class="input-container">
+                		   		<input id="" ng-model="username" type="text" name="EMAIL" autocomplete="off" class="subscribe-email" placeholder="ID" value="footballadmin"/>
+
+
+                		   		<div class="input-border-bottom"></div>
+                		   	</div>
+
+												<div class="input-container">
+														<input id="" ng-model="password" type="text" name="EMAIL" autocomplete="off" class="subscribe-email" placeholder="Password" value="123123"/>
+
+
+														<div class="input-border-bottom"></div>
+													</div>
+
+                    		<!-- notification container -->
+                    		<div class="col-xs-12 notif-container no-pad">
+                    			<div class="form-notif"></div>
+                    		</div>
+                    		<!-- end notification container -->
+
+                            <!-- submit button -->
+                            <div class="button-container col-xs-12 no-pad">
+                            	<button type="button" ng-click="UserLogin(username,password)" class="button button-green button-full">Log in</button>
+                            </div>
+                            <!-- end submit button -->
+                		</div>
+                    </form>
+                </div>
+                <!-- end data panel -->
+            </div>
+            <!-- end content -->
+        </div>
+     
+             <!-- LOGIN Panel -------------------------------------------------------------------------------------------------------->
+
+      
 
       
               
