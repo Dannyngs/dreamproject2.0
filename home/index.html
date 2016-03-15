@@ -1,0 +1,704 @@
+<!doctype html>
+<html ng-app="dreamproject20">
+  <head>
+    <meta charset="utf-8">
+    <title>dreamproject20</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+    <!-- build:css({.tmp/serve,src}) styles/vendor.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="../bower_components/angular-toastr/dist/angular-toastr.css" />
+    <link rel="stylesheet" href="../bower_components/animate.css/animate.css" />
+    <link rel="stylesheet" href="../bower_components/angular-chart.js/dist/angular-chart.css" />
+    <link rel="stylesheet" href="../bower_components/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css" />
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- build:css({.tmp/serve,src}) styles/app.css -->
+    <!-- inject:css -->
+    <link rel="stylesheet" href="app/index.css">
+    <link rel="stylesheet" href="app/css/animate.min.css">
+    <link rel="stylesheet" href="app/css/bootstrap.min.css">
+    <link rel="stylesheet" href="app/css/bstyle.css">
+    <link rel="stylesheet" href="app/css/font-awesome.min.css">
+    <link rel="stylesheet" href="app/css/jquery.kenburnsy.css">
+    <link rel="stylesheet" href="app/css/jquery.mCustomScrollbar.css">
+    <link rel="stylesheet" href="app/css/jquery.wordrotator.min.css">
+    <link rel="stylesheet" href="app/css/light-scheme.css">
+    <link rel="stylesheet" href="app/css/owl.carousel.css">
+    <link rel="stylesheet" href="app/css/owl.theme.css">
+    <link rel="stylesheet" href="app/css/simple-line-icons.css">
+    <link rel="stylesheet" href="app/components/malarkey/malarkey.css">
+    <link rel="stylesheet" href="app/components/navbar/navbar.css">
+    <link rel="stylesheet" href="app/css/photo-swipe/photoswipe.css">
+    <link rel="stylesheet" href="app/css/photo-swipe/default-skin/default-skin.css">
+    <!-- endinject -->
+    <!-- endbuild -->
+  </head>
+  <body ng-controller="MainController">
+    <!--[if lt IE 10]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+	<!-- preloader  -->
+        <div class="preloader-container">
+        	<div class="content-container">
+                <span class="pulse-loader"></span>
+
+                <h6 class="preloader-text">LOADING</h6>
+            </div>
+        </div>
+       
+
+    	<!-- logo -->
+        <img class="img-logo" alt="logo" src="" />
+        <!-- end logo -->
+
+    	<!-- menu (visible on large devices) -->
+        <nav class="large-device">
+        	<ul>
+            	<li>
+                	<a class="menu-link active" data-section="home"  data-section-pos="0" href="#">
+                    	<div class="icon-container"><span class="icon icon-home"></span></div>
+                        <div class="text"  translate="HOME">Home</div>
+                    </a>
+                </li>
+                <li>
+                	<a class="menu-link" data-section="about" data-section-pos="100" href="#">
+                    	<div class="icon-container"><span class="icon icon-book-open"></span></div>
+                        <div class="text" translate="ABOUT">About</div>
+                    </a>
+                </li>
+                <li>
+                	<a class="menu-link" data-section="works"  data-section-pos="200" href="#">
+                    	<div class="icon-container"><span class="icon icon-vector"></span></div>
+                        <div class="text" translate="APP">App</div>
+                    </a>
+                </li>
+               
+                <li>
+                	<a class="menu-link" data-section="contact" data-section-pos="300"  href="#contact">
+                    	<div class="icon-container"><span class="icon icon-earphones-alt"></span></div>
+                        <div class="text" translate="CONTACT">Contact</div>
+                    </a>
+                </li>
+                
+                 <li>
+                	<a class="gmenu-link"  ng-click="changeLanguage('chinese')" href="">
+                    	<div class="icon-container lang">{{lang}}</div>
+                        <div class="text" translate="LANGUAGE">Language</div>
+                    </a>
+                </li>
+                
+            </ul>
+        </nav>
+        <!-- end menu (visible on large devices) -->
+
+        <!-- menu (visible on small devices) -->
+        <nav class="small-device">
+        	<!-- show / hide menu button -->
+            <a href="#" class="menu-button-phone">
+            	<i class="icon fa fa-bars"></i>
+            </a>
+            <!-- end show / hide menu button -->
+
+            <!-- nav title -->
+            <span class="nav-title">home</span>
+            <!-- end nav title -->
+
+            <ul>
+            	<li>
+                	<a class="menu-link active" data-section="home" data-nav-title="home" data-section-pos="0" href="#">
+                    	<span class="icon-container"><i class="icon icon-home"></i></span>
+                        <span class="text">home</span>
+                    </a>
+                </li>
+                <li>
+                	<a class="menu-link" data-section="about" data-nav-title="about" data-section-pos="100" href="#">
+                    	<span class="icon-container"><i class="icon icon-book-open"></i></span>
+                        <span class="text">about</span>
+                    </a>
+                </li>
+                <li>
+                	<a class="menu-link" data-section="works" data-nav-title="works" data-section-pos="200" href="#">
+                    	<span class="icon-container"><i class="icon icon-vector"></i></span>
+                        <span class="text">works</span>
+                    </a>
+                </li>
+                <li>
+                	<a class="menu-link" data-section="contact" data-nav-title="contact" data-section-pos="300" href="#">
+                    	<span class="icon-container"><i class="icon icon-earphones-alt"></i></span>
+                        <span class="text">contact</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <!-- end menu (visible on small devices) -->
+
+             
+            <!--------------------------------------------------------------------- Data Panel -->
+<div   ng-class="{'is-visible':dataPanelOpened}" class="subscribe-popup col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 col-xs-12">
+        	<!-- close button -->
+            <a ng-click="closeDataPanel()" class="close-button hide-subscribe">
+            	<i class="icon fa fa-close"></i>
+            </a>
+            <!-- end close button -->
+
+        	<!-- content -->
+            <div class="content col-xs-12">
+            	<!-- title -->
+                <h4>{{home}} - {{away}}</h4>
+                <!-- end title -->
+
+               
+                <p >{{resultText}}</p>
+                 <!-- desc -->
+                <p class="desc mrg-top-sm"></p>
+                <!-- end desc -->
+                
+                
+                <!-- data panel -->
+                
+                <div class="dataPanel" ng-show="resultsShown">
+                 <div class="col-lg-5 col-lg-offset-1">
+        <canvas  id="doughnut" class="chart chart-doughnut"
+  chart-data="data" chart-labels="labels" chart-legend="true">
+</canvas>
+               
+            
+</div>
+                <div class="col-lg-5 ">
+                <canvas id="line" class="chart chart-line" chart-data="odds_max_dt"
+  chart-labels="odds_max_lb" chart-legend="true" chart-series="series_max"
+    >
+</canvas >  
+                    </div>
+                <div class="col-lg-5 col-lg-offset-1 no-pad">
+                <canvas id="line" class="chart chart-line" chart-data="odds_min_dt"
+  chart-labels="odds_min_lb" chart-legend="true" chart-series="series_min"
+    >
+</canvas >  
+                    </div>
+                <div class="col-lg-5 no-pad">
+                <canvas id="line" class="chart chart-line" chart-data="odds_avg_dt"
+  chart-labels="odds_avg_lb" chart-legend="true" chart-series="series_avg"
+    >
+</canvas >  
+                    </div>
+                </div>
+               
+                
+                <!-- end data panel -->
+            </div>
+            <!-- end content -->
+        </div>      <div ng-include="'app/loginPanel.html'"></div>
+       <!-- Data Panel -------------------------------------------------------------------------------------------------------->
+      
+                  <!--------------------------------------------------------------------- Login Panel -->
+<div   ng-class="{'is-visible':loginOpened}" class="subscribe-popup col-lg-4 col-lg-offset-4 col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 col-xs-12">
+        	<!-- close button -->
+            <a ng-click="closeLoginPanel()" class="close-button hide-subscribe">
+            	<i class="icon fa fa-close"></i>
+            </a>
+            <!-- end close button -->
+
+        	<!-- content -->
+            <div class="content col-xs-12">
+            	<!-- title -->
+                <h4>Dream Project Login</h4>
+                <!-- end title -->
+
+                <!-- desc -->
+                <div class="preloader-container">
+        	<div class="content-container">
+                <span class="pulse-loader"></span>
+
+                <h6 class="preloader-text">LOADING</h6>
+            </div>
+        </div>
+                <p class="desc mrg-top-sm">{{loginmsg}}</p>
+                <!-- end desc -->
+
+                <!-- data panel -->
+                <div class="subscribe-form-container col-xs-12 no-pad">
+                	<form class="subscribe-form" >
+                		<div class="col-xs-12 no-pad">
+                			<div class="input-container">
+                		   		<input id="" ng-model="username" type="text" name="EMAIL" autocomplete="off" class="subscribe-email" placeholder="ID" value="footballadmin"/>
+
+
+                		   		<div class="input-border-bottom"></div>
+                		   	</div>
+
+												<div class="input-container">
+														<input id="" ng-model="password" type="text" name="EMAIL" autocomplete="off" class="subscribe-email" placeholder="Password" value="123123"/>
+
+
+														<div class="input-border-bottom"></div>
+													</div>
+
+                    		<!-- notification container -->
+                    		<div class="col-xs-12 notif-container no-pad">
+                    			<div class="form-notif"></div>
+                    		</div>
+                    		<!-- end notification container -->
+
+                            <!-- submit button -->
+                            <div class="button-container col-xs-12 no-pad">
+                            	<button type="button" ng-click="UserLogin(username,password)" class="button button-green button-full">Log in</button>
+                            </div>
+                            <!-- end submit button -->
+                		</div>
+                    </form>
+                </div>
+                <!-- end data panel -->
+            </div>
+            <!-- end content -->
+        </div>
+     
+             <!-- LOGIN Panel -------------------------------------------------------------------------------------------------------->
+
+      
+
+      
+              
+                
+  <!-- page container -->
+        <div class="page-container">
+        	<!-- section container -->
+            <div class="section-container">
+            	
+<!-- home section -->
+            	<section class="home-section">
+        	    	<!-- section background -->
+        	    	<div class="bg-container"></div>
+                	<!-- end section background -->
+
+                	<!-- half overlay -->
+                	<div class="half-overlay left"></div>
+                	<!-- end half overlay -->
+
+                	<!-- content -->
+                	<div class="content col-lg-8 col-lg-offset-3 col-md-8 col-md-offset-2 col-sm-12 col-xs-rlt no-pad centering-y">
+            	    	<!-- left side -->
+            	    	<div class="left-side col-md-8 col-sm-12">
+                	    	<!-- headline -->
+                	    	<h1>Dream Project</h1>
+
+                	    	<div class="sub-title" id="wordsrotator">
+                		    	<h4 style="" translate="SLIDE1">Professional football analysis program</h4>
+                               
+                	    	</div>
+                	    	<!-- end headline -->
+
+                	    	<!-- short description -->
+                	    	<p class="desc" translate="HOME_DESC">
+                		    	Our company, DREAM PROJECT, has invested football matches for many years. Our company owns a very strong football matches database. What’s more, we hire specially-assigned persons to analyze each competition in order to make football matches becomes a professional investment with abundant profits.
+
+                	    	</p>
+                            
+                            
+                	    	<!-- end short description -->
+                    	</div>
+                    	<!-- end left side -->
+
+                    	<!-- right side -->
+                    	<div class="right-side col-md-4 col-md-offset-8 col-sm-12">
+                	    	<!-- top text -->
+                        	<div class="text-container" translate="RUNNING">Project has been running for</div>
+                        	<!-- end top text -->
+
+                        	<!-- countdown container -->
+                        	<div id="countdown" class="countdown-container">
+                    	    	<!-- days left -->
+                            	<div class="dash days_dash">
+                			    	<div class="counter">
+                    			    	<div class="digit">{{runningDate}}</div>
+                    			    	<div class="dash_title" translate="DAY">days<br /></div>
+							    	</div>
+                		    	</div>
+                            	<!-- end days left -->
+                        	</div>
+                        	<!-- end countdown container -->
+
+                        	
+                    	</div>
+                    	<!-- end right side -->
+                	</div>
+                	<!-- end content -->
+            	</section>
+            	<!-- end home section -->
+ 	
+                <!-- about section -->
+            	<section class="about-section">
+        	    	<!-- section background -->
+        	    	<div class="bg-container-static"></div>
+                	<!-- end section background -->
+
+                	<!-- half overlay -->
+                	<div class="half-overlay right"></div>
+                	<!-- end half overlay -->
+
+                	<!-- content -->
+                	<div class="content col-md-10 col-md-offset-1 col-sm-12 col-sm-rlt col-xs-12 no-pad centering-y">
+            	    	<!-- left side -->
+                    	<div class="left-side col-md-6 col-sm-12">
+                	    	<!-- company description -->
+                        	<div class="desc">
+                    	    	<!-- quote -->
+                            	<p class="quote separator-line">
+                        	    	About Us
+                            	</p>
+                            	<!-- end quote -->
+
+                            	<p class="desc" translate="ABOUT_CONTENT">
+                                </p>
+                        	</div>
+                        	<!-- end company description -->
+                    	</div>
+                    	<!-- end left side -->
+
+                    	<!-- right side -->
+                    	<div class="services-container col-md-4 col-md-offset-0 col-sm-6 col-sm-offset-3">
+                	    	<div class="carousel-col-1">
+                    	    	<!-- service 1 -->
+                    	    	<div class="service">
+                    		    	<!-- icon container -->
+                        	    	<div class="icon-container">
+                        		    	<i class="icon icon-pencil"></i>
+                        	    	</div>
+                        	    	<!-- end icon container -->
+
+                        	    	<!-- text container -->
+                        	    	<div class="text-container">
+                        		    	<h6 translate="ABOUT_GT1">WEB DESIGN</h6>
+                        	        	<p class="mrg-top-xs" translate="ABOUT_GC1">Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum nteposuerit.</p>
+                        	    	</div>
+                        	    	<!-- end text container -->
+                    	    	</div>
+                    	    	<!-- end service 1 -->
+
+                            	<!-- service 2 -->
+                    	    	<div class="service">
+                    		    	<!-- icon container -->
+                        	    	<div class="icon-container">
+                        		    	<i class="icon icon-ghost"></i>
+                        	    	</div>
+                        	    	<!-- end icon container -->
+
+                        	    	<!-- text container -->
+                        	    	<div class="text-container">
+                        		    	<h6 translate="ABOUT_GT2">GRAPHIC DESIGN</h6>
+                        	        	<p class="mrg-top-xs" translate="ABOUT_GC2">Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl aliquip ex ea commodo .</p>
+                        	    	</div>
+                        	    	<!-- end text container -->
+                    	    	</div>
+                    	    	<!-- end service 2 -->
+
+                            	<!-- service 3 -->
+                    	    	<div class="service">
+                    		    	<!-- icon container -->
+                        	    	<div class="icon-container">
+                        		    	<i class="icon icon-graph"></i>
+                        	    	</div>
+                        	    	<!-- end icon container -->
+
+                        	    	<!-- text container -->
+                        	    	<div class="text-container">
+                        		    	<h6 translate="ABOUT_GT3">MARKETING</h6>
+                        	        	<p class="mrg-top-xs" translate="ABOUT_GC3">Vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent.</p>
+                        	    	</div>
+                        	    	<!-- end text container -->
+                    	    	</div>
+                    	    	<!-- end service 3 -->
+                        	</div>
+                    	</div>
+                    	<!-- end right side -->
+                	</div>
+                	<!-- end content -->
+            	</section>
+            	<!-- end about section -->
+                
+                
+                  <!-- works section -->
+              <section class="works-section">
+                <!-- section background -->
+                <div class="bg-container-static"></div>
+                  <!-- end section background -->
+
+                  <!-- half overlay -->
+                  <!-- end half overlay -->
+                  
+                                  
+
+                  <!-- content -->
+                  <div class="works-container col-md-10 col-md-offset-1 col-sm-12">
+                               <h5>Football Races</h5>         
+                      <!--<div class="contact-form-container col-md-12 col-sm-12 col-xs-12" >
+                	    	
+
+					    	<form class="contact-form ng-pristine ng-valid" action="http://premiumtemplatewebsite.com/template/avec/php/contact.php" method="post" enctype="multipart/form-data">
+						    	
+                               
+						    	<div class="col-md-12 col-sm-12 no-pad">
+							    	<div class="input-container">
+								    	<input type="text" id="name" name="name">
+								    	<label for="name">Search Your Team Here</label>
+
+								    	<div class="input-border-bottom"></div>
+							    	</div>
+						    	</div>
+						    	
+
+						    	
+
+						    	
+					    	</form>
+                    	</div>-->
+                      
+                    <!-- work 1 -->
+                      <table style="margin-top:50px">
+                          
+                      <tr class="underline" ng-repeat="race in list">
+                          <td><h6 style=" text-transform: capitalize;"><a class="racename" ng-click="getit(race)">{{race.home}} - {{race.away}}</a></h6>  <p style="color:#E5283D;"><span>{{race.league}}</span> <span>{{race.time}}</span></p></td>
+                                
+                    </tr>
+                      
+                      </table>
+                     
+                      <!-- end work 1 -->
+                  </div>
+                  <!-- end content -->
+              </section>
+              <!-- end works section -->
+
+                <!-- contact section -->
+            	<section class="contact-section"> 
+        	    	<!-- section background -->
+        	    	<div class="bg-container-static"></div>
+                	<!-- end section background -->
+
+                	<!-- half overlay -->
+                	<div class="half-overlay right"></div>
+                	<!-- end half overlay -->
+
+                	<!-- content -->
+                	<div class="content col-md-10 col-md-offset-1 col-sm-12 col-xs-12 no-pad centering-y col-sm-rlt">
+            	    	<!-- details -->
+                    	<div class="col-md-6 col-sm-12">
+                	    	<!-- office -->
+                        	<div class="details">
+                    	    	<h5 translate="CONTACT_GT2">電話(Whatsapp)</h5>
+                                <h6>+852 5663 2361</h6>
+                                <p></p>
+
+                        	</div>
+                            
+                        	<!-- end office -->
+
+                        	
+
+                        	<!-- social media -->
+                        	<div class="details">
+                    	    	<h5>Facebook</h5>
+
+                            	<!-- social media container -->
+                            	<div class="social-media-container">
+            				    	<a class="social-media" target="blank" href="https://www.facebook.com/dreamprojecthk/"><i class="fa fa-facebook"></i></a>
+                        	    	
+                            	</div>
+                            	<!-- end social media container -->
+                        	</div>
+                        	<!-- end social media -->
+                            
+                            
+                            <!-- office -->
+                        	<div class="details">
+                    	    	<h5  translate="CONTACT_GT1"></h5>
+                                <h6  translate="CONTACT_GC1"></h6>
+                                
+
+                        	</div>
+                           
+                            
+                            
+                    	</div>
+                    	<!-- end details -->
+                        
+                      
+                    	<!-- end details -->
+
+                    	<!-- details -->
+                    	<div class="col-md-6 col-sm-12">
+                	    	<!-- office -->
+                        	<div class="details">
+                    	    	<h5 translate="CONTACT_GT3"></h5>
+                                <h6 translate="CONTACT_GC3"></h6>
+                                <p></p>
+
+                        	</div>
+                            
+                            <div class="details">
+                    	    	<h5 translate="CONTACT_GT4"></h5>
+                                <h6 translate="CONTACT_GC4"></h6>
+                                <p></p>
+
+                        	</div>
+                            
+                            <p translate="takepicture"></p>
+                            
+                        	<!-- end office -->
+
+                        	
+
+                        	
+                           
+                            
+                            
+                    	</div>
+                    	<!-- end details -->
+                	</div>
+                	<!-- end content -->
+            	</section>
+            	<!-- end contact section -->
+                
+            </div>
+            <!-- end section container -->
+        </div>
+        <!-- end page container -->
+
+ 
+
+
+
+           
+
+        <!-- Root element of PhotoSwipe. Must have class pswp. -->
+        <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+            <!-- Background of PhotoSwipe.
+                 It's a separate element as animating opacity is faster than rgba(). -->
+            <div class="pswp__bg"></div>
+
+            <!-- Slides wrapper with overflow:hidden. -->
+            <div class="pswp__scroll-wrap">
+
+                <!-- Container that holds slides.
+                    PhotoSwipe keeps only 3 of them in the DOM to save memory.
+                    Don't modify these 3 pswp__item elements, data is added later on. -->
+                <div class="pswp__container">
+                    <div class="pswp__item"></div>
+                    <div class="pswp__item"></div>
+                    <div class="pswp__item"></div>
+                </div>
+
+                <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+                <div class="pswp__ui pswp__ui--hidden">
+
+                    <div class="pswp__top-bar darkgrey">
+
+                        <!--  Controls are self-explanatory. Order can be changed. -->
+
+                        <div class="pswp__counter"></div>
+
+                        <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                        <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                        <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                        <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                        <!-- Preloader -->
+                        <div class="pswp__preloader">
+                            <div class="pswp__preloader__icn">
+                              <div class="pswp__preloader__cut">
+                                <div class="pswp__preloader__donut"></div>
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                        <div class="pswp__share-tooltip"></div>
+                    </div>
+
+                    <button class="pswp__button pswp__button--arrow--left" title="Previous">
+                    	<i class="icon fa fa-hand-o-left"></i>
+                    </button>
+
+                    <button class="pswp__button pswp__button--arrow--right" title="Next">
+                    	<i class="icon fa fa-hand-o-right"></i>
+                    </button>
+
+                    <div class="pswp__caption darkgrey">
+                        <div class="pswp__caption__center"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+		<!-- end photo swipe element -->
+
+        <!-- javascript import -->
+        <!-- jquery -->
+
+      
+    <!-- build:js(src) scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="../bower_components/jquery/dist/jquery.js"></script>
+    <script src="../bower_components/angular/angular.js"></script>
+    <script src="../bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="../bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script src="../bower_components/malarkey/dist/malarkey.min.js"></script>
+    <script src="../bower_components/angular-toastr/dist/angular-toastr.tpls.js"></script>
+    <script src="../bower_components/moment/moment.js"></script>
+    <script src="../bower_components/Chart.js/Chart.js"></script>
+    <script src="../bower_components/angular-chart.js/dist/angular-chart.js"></script>
+    <script src="../bower_components/jquery-mousewheel/jquery.mousewheel.js"></script>
+    <script src="../bower_components/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.js"></script>
+    <script src="../bower_components/angular-cookie/angular-cookie.js"></script>
+    <script src="../bower_components/angular-translate/angular-translate.js"></script>
+    <script src="../bower_components/kenburnsy/dist/jquery.kenburnsy.js"></script>
+    <script src="../bower_components/velocity/velocity.js"></script>
+    <script src="../bower_components/velocity/velocity.ui.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- build:js({.tmp/serve,.tmp/partials,src}) scripts/app.js -->
+    <!-- inject:js -->
+    <script src="app/index.module.js"></script>
+    <script src="app/components/webDevTec/webDevTec.service.js"></script>
+    <script src="app/components/navbar/navbar.directive.js"></script>
+    <script src="app/components/malarkey/malarkey.directive.js"></script>
+    <script src="app/components/githubContributor/githubContributor.service.js"></script>
+    <script src="app/js/socket.io.js"></script>
+    <script src="app/js/require-config.js"></script>
+    <script src="app/js/owl.carousel.min.js"></script>
+    <script src="app/js/main_constellation.js"></script>
+    <script src="app/js/jquery.wordrotator.min.js"></script>
+    <script src="app/js/countdown.min.js"></script>
+    <script src="app/main.controller.js"></script>
+    <script src="app/index.run.js"></script>
+    <script src="app/index.route.js"></script>
+    <script src="app/index.constants.js"></script>
+    <script src="app/index.config.js"></script>
+    <!-- endinject -->
+    
+      
+    <!-- inject:partials -->
+    <!-- angular templates will be automatically converted in js and inserted here -->
+    <!-- endinject -->
+    <!-- endbuild -->
+<!--<span id="data_script"></span> -->
+         <script src="http://cdn.jsdelivr.net/jquery.scrollto/2.1.2/jquery.scrollTo.min.js"></script>
+
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-backstretch/2.0.4/jquery.backstretch.min.js"></script>
+            
+      <script src="http://requirejs.org/docs/release/2.1.22/minified/require.js"></script>
+
+
+  </body>
+</html>
