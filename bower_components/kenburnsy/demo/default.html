@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Default behaviour — Kenburnsy</title>
+
+    <link rel="stylesheet" href="./assets/demo.css">
+
+    <!-- Kenburnsy styles -->
+    <link rel="stylesheet" href="../dist/jquery.kenburnsy.css">
+
+    <!-- JQuery -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="../vendor/jquery.min.js"><\/script>')</script>
+
+    <!-- Velocity.js -->
+    <script src="http://cdn.jsdelivr.net/jquery.velocity/0.9.0/jquery.velocity.min.js"></script>
+    <script>window.jQuery.velocity || document.write('<script src="../vendor/jquery.velocity.min.js"><\/script>')</script>
+
+    <!-- Kenburnsy.js -->
+    <script src="../dist/jquery.kenburnsy.js"></script>
+  </head>
+  <body>
+  
+    <div class="container">
+      <div id="element">
+        <img src="./assets/img1.jpg" alt="">
+        <img src="./assets/img2.jpg" alt="">
+        <img src="./assets/img3.jpg" alt="">
+      </div>
+    </div>
+
+    <script>
+      $(function() {
+        $("#element").kenburnsy();
+      });
+    </script>
+
+  </body>
+</html>
