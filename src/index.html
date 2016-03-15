@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>dreamproject20</title>
     <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
     <!-- build:css({.tmp/serve,src}) styles/vendor.css -->
@@ -12,7 +12,6 @@
     <!-- run `gulp inject` to automatically populate bower styles dependencies -->
     <!-- endbower -->
     <!-- endbuild -->
-		<link rel="stylesheet" href="css/style.css" type="text/css">
 
     <!-- build:css({.tmp/serve,src}) styles/app.css -->
     <!-- inject:css -->
@@ -45,28 +44,36 @@
             	<li>
                 	<a class="menu-link active" data-section="home"  data-section-pos="0" href="#">
                     	<div class="icon-container"><span class="icon icon-home"></span></div>
-                        <div class="text">Home</div>
+                        <div class="text"  translate="HOME">Home</div>
                     </a>
                 </li>
                 <li>
                 	<a class="menu-link" data-section="about" data-section-pos="100" href="#">
                     	<div class="icon-container"><span class="icon icon-book-open"></span></div>
-                        <div class="text">About</div>
+                        <div class="text" translate="ABOUT">About</div>
                     </a>
                 </li>
                 <li>
                 	<a class="menu-link" data-section="works"  data-section-pos="200" href="#">
                     	<div class="icon-container"><span class="icon icon-vector"></span></div>
-                        <div class="text">App</div>
+                        <div class="text" translate="APP">App</div>
                     </a>
                 </li>
                
                 <li>
                 	<a class="menu-link" data-section="contact" data-section-pos="300"  href="#contact">
                     	<div class="icon-container"><span class="icon icon-earphones-alt"></span></div>
-                        <div class="text">Contact</div>
+                        <div class="text" translate="CONTACT">Contact</div>
                     </a>
                 </li>
+                
+                 <li>
+                	<a class="gmenu-link"  ng-click="changeLanguage('chinese')" href="">
+                    	<div class="icon-container lang">{{lang}}</div>
+                        <div class="text" translate="LANGUAGE">Language</div>
+                    </a>
+                </li>
+                
             </ul>
         </nav>
         <!-- end menu (visible on large devices) -->
@@ -143,14 +150,18 @@
                 	    	<h1>Dream Project</h1>
 
                 	    	<div class="sub-title" id="wordsrotator">
-                		    	<h4>Lorem ipsum dolor</h4>
+                		    	<h4 style="" translate="SLIDE1">Professional football analysis program</h4>
+                               
                 	    	</div>
                 	    	<!-- end headline -->
 
                 	    	<!-- short description -->
-                	    	<p class="desc">
-                		    	Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euis aolor sit amet od tincidunt ut laoreet dolore magna aliquam erat volutpat.
+                	    	<p class="desc" translate="HOME_DESC">
+                		    	Our company, DREAM PROJECT, has invested football matches for many years. Our company owns a very strong football matches database. What’s more, we hire specially-assigned persons to analyze each competition in order to make football matches becomes a professional investment with abundant profits.
+
                 	    	</p>
+                            
+                            
                 	    	<!-- end short description -->
                     	</div>
                     	<!-- end left side -->
@@ -158,7 +169,7 @@
                     	<!-- right side -->
                     	<div class="right-side col-md-4 col-md-offset-8 col-sm-12">
                 	    	<!-- top text -->
-                        	<div class="text-container">Project has been running for</div>
+                        	<div class="text-container" translate="RUNNING">Project has been running for</div>
                         	<!-- end top text -->
 
                         	<!-- countdown container -->
@@ -166,8 +177,8 @@
                     	    	<!-- days left -->
                             	<div class="dash days_dash">
                 			    	<div class="counter">
-                    			    	<div class="digit">0</div><div class="digit">0</div><div class="digit">0</div>
-                    			    	<div class="dash_title">days<br /></div>
+                    			    	<div class="digit">{{runningDate}}</div>
+                    			    	<div class="dash_title" translate="DAY">days<br /></div>
 							    	</div>
                 		    	</div>
                             	<!-- end days left -->
@@ -195,22 +206,17 @@
                 	<!-- content -->
                 	<div class="content col-md-10 col-md-offset-1 col-sm-12 col-sm-rlt col-xs-12 no-pad centering-y">
             	    	<!-- left side -->
-                    	<div class="left-side col-md-8 col-sm-12">
+                    	<div class="left-side col-md-6 col-sm-12">
                 	    	<!-- company description -->
                         	<div class="desc">
                     	    	<!-- quote -->
                             	<p class="quote separator-line">
-                        	    	WE CREATE AWESOME PRODUCTS & WE REALLY LOVE WHAT WE DO.
+                        	    	About Us
                             	</p>
                             	<!-- end quote -->
 
-                            	<p class="mrg-top-sm">
-                        	    	Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto. Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Investigationes demonstraverunt.
-                            	</p>
-
-                            	<p class="mrg-top-sm">
-                        	    	Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima.
-                            	</p>
+                            	<p class="desc" translate="ABOUT_CONTENT">
+                                </p>
                         	</div>
                         	<!-- end company description -->
                     	</div>
@@ -229,8 +235,8 @@
 
                         	    	<!-- text container -->
                         	    	<div class="text-container">
-                        		    	<h6>WEB DESIGN</h6>
-                        	        	<p class="mrg-top-xs">Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum nteposuerit.</p>
+                        		    	<h6 translate="ABOUT_GT1">WEB DESIGN</h6>
+                        	        	<p class="mrg-top-xs" translate="ABOUT_GC1">Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum nteposuerit.</p>
                         	    	</div>
                         	    	<!-- end text container -->
                     	    	</div>
@@ -246,8 +252,8 @@
 
                         	    	<!-- text container -->
                         	    	<div class="text-container">
-                        		    	<h6>GRAPHIC DESIGN</h6>
-                        	        	<p class="mrg-top-xs">Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl aliquip ex ea commodo .</p>
+                        		    	<h6 translate="ABOUT_GT2">GRAPHIC DESIGN</h6>
+                        	        	<p class="mrg-top-xs" translate="ABOUT_GC2">Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl aliquip ex ea commodo .</p>
                         	    	</div>
                         	    	<!-- end text container -->
                     	    	</div>
@@ -263,8 +269,8 @@
 
                         	    	<!-- text container -->
                         	    	<div class="text-container">
-                        		    	<h6>MARKETING</h6>
-                        	        	<p class="mrg-top-xs">Vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent.</p>
+                        		    	<h6 translate="ABOUT_GT3">MARKETING</h6>
+                        	        	<p class="mrg-top-xs" translate="ABOUT_GC3">Vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent.</p>
                         	    	</div>
                         	    	<!-- end text container -->
                     	    	</div>
@@ -318,7 +324,7 @@
                       <table style="margin-top:50px">
                           
                       <tr class="underline" ng-repeat="race in list">
-                          <td><h6><a class="racename" ng-click="getit(race)">{{race[5]}} - {{race[8]}}</a></h6>  <p><span>{{league[race[1]][2]}}</span> <span>{{race[10]}}</span></p></td>
+                          <td><h6 style=" text-transform: capitalize;"><a class="racename" ng-click="getit(race)">{{race.home}} - {{race.away}}</a></h6>  <p style="color:#E5283D;"><span>{{race.league}}</span> <span>{{race.time}}</span></p></td>
                                 
                     </tr>
                       
@@ -331,7 +337,7 @@
               <!-- end works section -->
 
                 <!-- contact section -->
-            	<section class="contact-section">
+            	<section class="contact-section"> 
         	    	<!-- section background -->
         	    	<div class="bg-container-static"></div>
                 	<!-- end section background -->
@@ -343,99 +349,78 @@
                 	<!-- content -->
                 	<div class="content col-md-10 col-md-offset-1 col-sm-12 col-xs-12 no-pad centering-y col-sm-rlt">
             	    	<!-- details -->
-                    	<div class="col-md-4 col-sm-12">
+                    	<div class="col-md-6 col-sm-12">
                 	    	<!-- office -->
                         	<div class="details">
-                    	    	<h5>Account Info</h5>
-                                <h6>acc:333333333</h6>
+                    	    	<h5 translate="CONTACT_GT2">電話(Whatsapp)</h5>
+                                <h6>+852 5663 2361</h6>
                                 <p></p>
 
                         	</div>
                             
                         	<!-- end office -->
 
-                        	<!-- phone -->
-                        	<div class="details">
-                    	    	<h5>Phone</h5>
-                            	<p>+123 4567 890<br />+123 4567 891</p>
-                        	</div>
-                        	<!-- end phone -->
-
-                        	<!-- email -->
-                        	<div class="details">
-                    	    	<h5>Email</h5>
-                            	<p>support@avec.com<br />info@avec.com</p>
-                        	</div>
-                        	<!-- end email -->
+                        	
 
                         	<!-- social media -->
                         	<div class="details">
-                    	    	<h5>stay connected</h5>
+                    	    	<h5>Facebook</h5>
 
                             	<!-- social media container -->
                             	<div class="social-media-container">
-            				    	<a class="social-media" href="#"><i class="fa fa-facebook"></i></a>
-                        	    	<a class="social-media" href="#"><i class="fa fa-twitter"></i></a>
-                        	    	<a class="social-media" href="#"><i class="fa fa-behance"></i></a>
+            				    	<a class="social-media" target="blank" href="https://www.facebook.com/dreamprojecthk/"><i class="fa fa-facebook"></i></a>
+                        	    	
                             	</div>
                             	<!-- end social media container -->
                         	</div>
                         	<!-- end social media -->
+                            
+                            
+                            <!-- office -->
+                        	<div class="details">
+                    	    	<h5  translate="CONTACT_GT1"></h5>
+                                <h6  translate="CONTACT_GC1"></h6>
+                                
+
+                        	</div>
+                           
+                            
+                            
                     	</div>
                     	<!-- end details -->
+                        
+                      
+                    	<!-- end details -->
 
-                    	<!-- contact form container -->
-                    	<div class="contact-form-container col-md-8 col-sm-12 col-xs-12">
-                	    	<h5>DROP US A LINE</h5>
+                    	<!-- details -->
+                    	<div class="col-md-6 col-sm-12">
+                	    	<!-- office -->
+                        	<div class="details">
+                    	    	<h5 translate="CONTACT_GT3"></h5>
+                                <h6 translate="CONTACT_GC3"></h6>
+                                <p></p>
 
-					    	<form class="contact-form" action="http://premiumtemplatewebsite.com/template/avec/php/contact.php" method="post" enctype="multipart/form-data">
-						    	<!-- left side -->
-						    	<div class="col-md-6 col-sm-12 no-pad">
-							    	<div class="input-container">
-								    	<input type="text" id="name" name="name" />
-								    	<label for="name">name</label>
+                        	</div>
+                            
+                            <div class="details">
+                    	    	<h5 translate="CONTACT_GT4"></h5>
+                                <h6 translate="CONTACT_GC4"></h6>
+                                <p></p>
 
-								    	<div class="input-border-bottom"></div>
-							    	</div>
-						    	</div>
-						    	<!-- end left side -->
+                        	</div>
+                            
+                            <p translate="takepicture"></p>
+                            
+                        	<!-- end office -->
 
-						    	<!-- right side -->
-						    	<div class="col-md-6 col-sm-12 no-pad">
-							    	<div class="input-container">
-								    	<input type="email" id="email" name="email" />
-								    	<label for="email">email</label>
+                        	
 
-								    	<div class="input-border-bottom"></div>
-							    	</div>
-						    	</div>
-						    	<!-- end right side -->
-
-						    	<!-- full width -->
-						    	<div class="col-xs-12 text-center no-pad">
-							    	<div class="input-container no-mrg">
-								    	<textarea id="message" name="message"></textarea>
-								    	<label for="message">message</label>
-
-								    	<div class="input-border-bottom"></div>
-							    	</div>
-
-							    	<!-- notification container -->
-							    	<div class="col-xs-12 notif-container no-pad">
-								    	<div class="form-notif"></div>
-							    	</div>
-							    	<!-- end notification container -->
-
-							    	<!-- button container -->
-							    	<div class="col-xs-12 no-pad text-left mrg-top-xs">
-								    	<button type="submit" class="button button-green button-small">send</button>
-							    	</div>
-							    	<!-- end button container -->
-						    	</div>
-						    	<!-- end full width -->
-					    	</form>
+                        	
+                           
+                            
+                            
                     	</div>
-                    	<!-- end contact form container -->
+                    	<!-- end details -->
                 	</div>
                 	<!-- end content -->
             	</section>
@@ -527,6 +512,7 @@
     <!-- run `gulp inject` to automatically populate bower script dependencies -->
     <!-- endbower -->
     <!-- endbuild -->
+                 <script src="../bower_components/socket.io-client/socket.io.js"></script>
 
     <!-- build:js({.tmp/serve,.tmp/partials,src}) scripts/app.js -->
     <!-- inject:js -->
@@ -540,10 +526,11 @@
     <!-- endbuild -->
 <!--<span id="data_script"></span> -->
          <script src="http://cdn.jsdelivr.net/jquery.scrollto/2.1.2/jquery.scrollTo.min.js"></script>
+         <script src="../bower_components/owlcarousel/owl-carousel/owl.carousel.min.js"></script>
 
       <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-backstretch/2.0.4/jquery.backstretch.min.js"></script>
+            
       <script src="http://requirejs.org/docs/release/2.1.22/minified/require.js"></script>
-         
 
 
   </body>

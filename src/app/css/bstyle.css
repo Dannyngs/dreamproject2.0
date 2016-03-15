@@ -79,8 +79,7 @@ TABLE OF CONTENTS
 	1.0 BASIC STYLE
 /*-- ========================================= --*/
 html, body{
-	-webkit-font-smoothing:antialiased;
-    -moz-osx-font-smoothing:grayscale;
+	
 	margin:0px;
 	padding:0px;
 	width:100%;
@@ -118,13 +117,13 @@ a{
 .centering-y{
 	position:absolute;
 	display:inline-block;
-	top:50%;
+	top:15%;
 	left:0%;
-	-webkit-transform:translateY(-50%);
-	   -moz-transform:translateY(-50%);
-	    -ms-transform:translateY(-50%);
-	     -o-transform:translateY(-50%);
-	        transform:translateY(-50%);
+	//-webkit-transform:translateY(-50%);
+	  // -moz-transform:translateY(-50%);
+	   // -ms-transform:translateY(-50%);
+	   //  -o-transform:translateY(-50%);
+	      //  transform:translateY(-50%);
 }
 .centering-xy{
 	position:absolute;
@@ -1242,12 +1241,13 @@ a.social-media:hover{
 
 
 /*-- ============ 4.8 SUBSCRIBE POPUP ============ --*/
+@media all and (max-width: 768px){.subscribe-popup{overflow-y: scroll;}}
 .subscribe-popup{
 	position:absolute;
 	display:inline-block;
 	top:50%;
 	left:0%;
-	height:600px;
+	height:620px;
 	z-index:10;
 	background:rgba(38,38,38,0.9);
 	border:4px solid white;
@@ -1269,6 +1269,7 @@ a.social-media:hover{
 	        transition:all 0.5s ease;
 	opacity:0;
 	visibility:hidden;
+    
 }
 .subscribe-popup.is-visible{
 	-webkit-transform: rotateX(0deg) translateY(-50%);
@@ -2497,11 +2498,14 @@ canvas#bg-canvas{
 .doughnut-legend{
     color:white;
 }
+.line-legend{
+    color:white;
+}
 table{
     width:100%;
 }
 .racename{
-    color:#d7f257;
+    color:#111;
     font-weight: bold;
     font-family: "微軟正黑體";
 }
@@ -2514,4 +2518,9 @@ table{
 .underline{
     text-align:center;
     border-bottom:solid rgba(245,245,245,0.1) 1px;
+}
+
+.lang{color:#fff;font-size:25px;line-height:65px}
+a:hover{
+    text-decoration: none;
 }
