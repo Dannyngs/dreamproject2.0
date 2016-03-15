@@ -6,71 +6,110 @@
     .controller('MainController', MainController);
 
   /** @ngInject */
-  function MainController($timeout, webDevTec, toastr,$scope,$http) {
+  function MainController($timeout, webDevTec, toastr,$scope,$http,SocketService,UserService,$translate) {
    
-      
+      $scope.runningDate=1352;
+      $scope.lang='Eng';
       $scope.dataPanelOpened=false;
-      $scope.loginPanelOpened=false;
-
+      $scope.loginOpened=false;
+      $scope.username='footballadmin';
+      $scope.password='123123';
+      $scope.loginmsg='Please Log in first';
       
+      var getRaceList=function(){
+       
+         //Chinese List
+    var raceList =Array();
+       if($translate.use()=='chinese')
+           {
+               for(var i=0;i<A.length;i++)
+    {
+        
+        var race={id:A[i][0],home:A[i][5].replace("<font color=#880000>(中)</font>", ""),away:A[i][8],time:A[i][10],league:B[A[i][1]][2]}
+          raceList.push(race);
+        } 
+               
+           }
+       else
+           {
+              for(var i=0;i<A.length;i++)
+    {
+        
+        var race={id:A[i][0],home:A[i][6].replace("<font color=#880000>(中)</font>", ""),away:A[i][9],time:A[i][10],league:B[A[i][1]][3]}
+          raceList.push(race);
+        }  
+               
+           }
+   
+    
+   return raceList;
+   
+       
+       
+   
+   }
+     
      
       
+  
+      require([
+  'http://score.nowscore.com/data/bf.js?1456213905000','http://cdnjs.cloudflare.com/ajax/libs/seedrandom/2.4.0/seedrandom.min.js'
+   
+], function () {
+  
    
      
-require([
-  'http://score.nowscore.com/data/bf.js?1456213905000','http://cdnjs.cloudflare.com/ajax/libs/seedrandom/2.4.0/seedrandom.min.js'
-], function () {
-  console.log('ok');
+  
+        $scope.list=getRaceList();
     
-    for(var i=0;i<A.length;i++)
-        {
-            A[i][5]=A[i][5].replace("<font color=#880000>(中)</font>", "")
-           
-        }
-   // console.log(A);
-    $scope.list=A;
-    $scope.league=B;
-    $scope.$apply();
+    
+   
+        $scope.$apply();
 });
       
       
-      // var allDate=document.getElementById("data_script");
- //var  s=document.createElement("script");
- //s.type="text/javascript";
- //s.src="http://score.nowscore.com/data/bf.js?1456213905000";
- //allDate.removeChild(allDate.firstChild);
- //allDate.appendChild(s,"script");
+   
 
       $scope.getit=function(race){
+          
+          
+          
+        
+          
           $scope.resultsShown=false;
           $scope.resultText='Calculating... Please Wait.';
           
+        // if(UserService.isLoggedIn()){
           if(true){
               $scope.dataPanelOpened=true;
-          }else{
-              
-              $scope.loginPanelOpened=true;
-
-          }
+          }else{$scope.loginOpened=true;}
         
           
-          $scope.home=race[5];
-          $scope.away=race[8];
-          $scope.time=race[10];
+          $scope.home=race.home;
+          $scope.away=race.away;
+          $scope.time=race.time;
          $scope.labels = [$scope.home,$scope.away];
           $scope.data = [0,0];
+          $scope.odds_max_dt = [0,0];$scope.odds_avg_dt = [0,0];$scope.odds_min_dt = [0,0];
           
          $http({
                   method: 'POST',
                   url: 'http://football-back-dev.ap-southeast-1.elasticbeanstalk.com/api/scores',
-                data:{url:'http://score.nowscore.com/odds/match.aspx?id='+race[0]}
+                data:{url:'http://score.nowscore.com/odds/match.aspx?id='+race.id}
                 }).then(function successCallback(rs) {
-                        var response=rs.data;
+             
+             var response=rs.data;
              console.log(response.name)
                         	$scope.game_name = response.name
     		$scope.bet_names = Object.keys(response.data)
     		$scope.data = response.data
 
+            
+            
+            
+            
+           
+            //******************Start Calculating  Result********************/
     		// disable SNAI and William
     		for( var i=0; i<18; i++ ) {
     			$scope.data[$scope.bet_names[3]][i] = 0
@@ -479,17 +518,62 @@ require([
                          
                  }
              
-          
+         
         
              
-                  }, function errorCallback(response) {
+                  }, 
+                        function errorCallback(response) {
                      $scope.data = [0,0]; 
                     $scope.resultText=response.data;
                     
                   });
                  
-          
-          
+          /*****************Odds Calculation**********/
+          $http({
+                  method: 'GET',
+                  url: 'http://football-back-dev.ap-southeast-1.elasticbeanstalk.com'
+                }).then(
+              function successCallback(rs){
+              
+                            var data=rs.data;
+                            var max = data.max;
+                            var max_ins=data.max_ins;
+                            var min =data.min;
+                            var min_ins =data.min_ins;
+                            var avg = data.avg;
+                            var avg_ins = data.avg_ins;
+                            
+              
+                  $scope.odds_max_lb = ["主胜率", "和率", "客胜率", "返还率"];
+                  $scope.series_max = ['初盘最高值', '即时最高值'];
+                  $scope.odds_max_dt = [
+                                [max[3],max[4],max[5],max[6]],
+                                [max_ins[3],max_ins[4],max_ins[5],max_ins[6]]
+                            ];
+                  
+                  $scope.odds_min_lb = ["主胜率", "和率", "客胜率", "返还率"];
+                  $scope.series_min = ['初盘最低值', '即时最低值'];
+                  $scope.odds_min_dt = [
+                                [min[3],min[4],min[5],min[6]],
+                                [min_ins[3],min_ins[4],min_ins[5],min_ins[6]]
+                            ];
+                  
+                  $scope.odds_avg_lb = ["主胜率", "和率", "客胜率", "返还率"];
+                  $scope.series_avg = ['初盘平均值', '即时平均值'];
+                  $scope.odds_avg_dt = [
+                                [avg[3],avg[4],avg[5],avg[6]],
+                                [avg_ins[3],avg_ins[4],avg_ins[5],avg_ins[6]]
+                            ];
+                  
+                  
+                  
+                  
+                  
+                  
+              
+              
+                    },
+              function errorCallback(response){});
           
   }
 
@@ -510,6 +594,73 @@ require([
           
            $scope.loginOpened=true;
       }
+      
+      
+        SocketService.logoutfailed(function(res){
+
+                toastr.error(res)
+            })
+        SocketService.logoutok(function(res){
+
+                    UserService.logout()
+                    console.log('log out ok!')
+                  // $location.path('/login')
+                   // toastr.success("Good Bye! ", allowHtml: true})
+            })
+        SocketService.loginfailed(function(res){
+            console.log('login failed')
+            $scope.loginmsg=res.msg;
+                       $scope.$apply()
+
+
+            })
+        SocketService.loginok(function(res){
+                    console.log('login ok')
+                    UserService.login(res)
+                    $scope.loginOpened=false;
+            $scope.$apply()
+                    
+            })
+        $scope.UserLogout = function() {
+
+         SocketService.emit('logout',SocketService.id)
+
+
+
+ 	}
+        $scope.UserLogin = function(u,p) {
+            $scope.loginmsg='Loggin into your account, please wait...';
+        //$rootScope.buttonDisabled =   1
+       SocketService.emit("login",{ username: u, password: p })
+
+                   
+                             
+        
+       
+    
+    
+    
+    
+    
+    
+    }
+       
+        $scope.changeLanguage = function () {
+                $scope.lang=$translate.use()=='english'?'En':'中';
+                $translate.use($translate.use()=='english'?'chinese':'english');
+            $scope.list=getRaceList();
+        };
+
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
       
   }
     

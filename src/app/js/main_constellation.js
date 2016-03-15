@@ -52,7 +52,7 @@ TABLE OF CONTENTS
 	/*-- ================================ --
 		1.0 TEMPLATE SETTINGS
 	/*-- ================================ --*/
-	$.bg_type = 3;
+	$.bg_type = 2;
 	/*
 	* 1. Backstretch slideshow background
 	* 2. Slideshow background with Kenburns Effect
@@ -60,16 +60,16 @@ TABLE OF CONTENTS
 	* 4. YouTube video background
 	* 5. Self hosted video background
 	*/
-	$.launch_date = [7,9,2019];											//-- launch date [d,m,yyyy], for example 7 September 2016 : [7,9,2016]
-	$.bg_urls = ["http://www.iwallhd.com/stock/valdes-football-hd-soccer.jpg"];
+	$.launch_date = [7,9,2001];											//-- http://www.iwallhd.com/stock/valdes-football-hd-soccer.jpglaunch date [d,m,yyyy], for example 7 September 2016 : [7,9,2016]
+	$.bg_urls = ["app/img/back.jpg"];
 	$.youtube_url = "";													//-- just the last words after https://www.youtube.com/watch?v=
 	$.self_host_video_path = "";										//-- self hosted video path
 	$.self_host_video_filename = "";									//-- self hosted video filename "WITHOUT .MP4 EXTENSION"
 	$.latitude_longitude = [[40.67,-73.940]];							//-- google map latitude and longitude, $.latitude_longitude = [[latitude,longitude]];
-	$.map_marker_url = "img/marker.png";								//-- Map marker image url
+	$.map_marker_url = "app/img/marker.png";								//-- Map marker image url
 	$.map_marker_info = '<h6 class="text-darkgrey">Main Office</h6><p class="map-marker-info">Open at 09:00 - 15:00<br>Monday till Saturday</p>';
 	$.enable_wordrotator = true;										//-- enabling wordrotator on headline text
-	$.wordrotator_words = ['<h4>creative agency</h4>','<h4>multimedia marketing</h4>'];	//-- Array of words, for headline text
+	$.wordrotator_words = ['<h4>Professional horse racing program</h4>','<h4>Data analysis of competition</h4>'];	//-- Array of words, for headline text
 
 
 	/*-- ================================ --
@@ -463,19 +463,10 @@ TABLE OF CONTENTS
 		}
 
 		//-- 6.19 activate countdown
-		if($('#countdown').is(':visible')){
-			$('#countdown').countDown({
-				targetDate: {
-					'day': 		$.launch_date[0],
-					'month': 	$.launch_date[1],
-					'year': 	$.launch_date[2],
-					'hour': 	0,
-					'min': 		0,
-					'sec': 		0
-				},
-				omitWeeks: true
-			});
-		}
+		//if($('#countdown').is(':visible')){
+            console.log(1212211221)
+		
+		//}
 
 		//-- 6.20 init 1 column carousel
 		if($('.carousel-col-1').is(':visible')){

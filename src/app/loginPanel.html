@@ -13,24 +13,29 @@
                 <!-- end title -->
 
                 <!-- desc -->
-                <p class="desc mrg-top-sm">Please Log into your account first s</p>
+                <div class="preloader-container">
+        	<div class="content-container">
+                <span class="pulse-loader"></span>
+
+                <h6 class="preloader-text">LOADING</h6>
+            </div>
+        </div>
+                <p class="desc mrg-top-sm">{{loginmsg}}</p>
                 <!-- end desc -->
 
                 <!-- data panel -->
                 <div class="subscribe-form-container col-xs-12 no-pad">
-                	<form class="subscribe-form" action="http://facebook.us3.list-manage.com/subscribe/post-json?u=3dbee991d579ab45fd913a688&amp;id=f9c921a6fc&amp;c=?" method="get" enctype="multipart/form-data">
+                	<form class="subscribe-form" >
                 		<div class="col-xs-12 no-pad">
                 			<div class="input-container">
-                		   		<input id="email_subscribe" type="text" name="EMAIL" autocomplete="off" class="subscribe-email" />
-                		        <label for="email">ID</label>
+                		   		<input id="" ng-model="username" type="text" name="EMAIL" autocomplete="off" class="subscribe-email" placeholder="ID" value="footballadmin"/>
 
 
                 		   		<div class="input-border-bottom"></div>
                 		   	</div>
 
 												<div class="input-container">
-														<input id="email_subscribe" type="text" name="EMAIL" autocomplete="off" class="subscribe-email" />
-															<label for="email">Password</label>
+														<input id="" ng-model="password" type="text" name="EMAIL" autocomplete="off" class="subscribe-email" placeholder="Password" value="123123"/>
 
 
 														<div class="input-border-bottom"></div>
@@ -44,7 +49,7 @@
 
                             <!-- submit button -->
                             <div class="button-container col-xs-12 no-pad">
-                            	<button type="submit" class="button button-green button-full">Log in</button>
+                            	<button type="button" ng-click="UserLogin(username,password)" class="button button-green button-full">Log in</button>
                             </div>
                             <!-- end submit button -->
                 		</div>

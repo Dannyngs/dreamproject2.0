@@ -1,4 +1,4 @@
-/*--
+/*-- 
 AUTHOR   : SimplePixel
 URL      : http://themeforest.net/user/SimplePixel
 TEMPLATE : Avec - Creative Coming Soon Template
@@ -41,18 +41,18 @@ TABLE OF CONTENTS
 	7.1 COLUMNS
 	7.2 MARGINS & PADDINGS
 	7.3 SECTIONS
-8.0 STYLE FOR TABLET PORTRAIT
+8.0 STYLE FOR TABLET PORTRAIT 
 	8.1 SECTIONS
 	8.2 COLUMNS
 	8.3 MARGINS & PADDINGS
 	8.4 MENU
 	8.5 LOGO
-9.0 STYLE FOR EXTRA SMALL DEVICES
+9.0 STYLE FOR EXTRA SMALL DEVICES 
 	9.1 TYPOGRAPHY
 	9.2 COLUMNS
 	9.3 MARGINS & PADDINGS
-	9.4 SECTION
-10.0 STYLE FOR EXTRA SMALL DEVICES (LANDSCAPE)
+	9.4 SECTION 
+10.0 STYLE FOR EXTRA SMALL DEVICES (LANDSCAPE) 
 --*/
 
 /*-- ========================================= --
@@ -140,7 +140,7 @@ a{
 
 /*-- ========================================= --
 	2.0 TYPOGRAPHY
-/*-- ========================================= --*/
+/*-- ========================================= --*/ 
 
 /*-- ============ 2.1 BASIC TEXT & FONT FAMILY ============ --*/
 *{
@@ -166,13 +166,13 @@ h2{
 	font-size:50px;
 	line-height:64px;
 	letter-spacing:0px;
-	font-weight:700;
+	font-weight:700;	
 }
 h3{
 	font-size:30px;
 	line-height:44px;
 	letter-spacing:8px;
-	font-weight:400;
+	font-weight:400;	
 }
 h4{
 	font-size:24px;
@@ -287,10 +287,10 @@ p.separator-line::before{
 	height:60px;
 	width:auto;
 	z-index:6;
-	-webkit-transition:all 0.5s ease 1500ms;
-	   -moz-transition:all 0.5s ease 1500ms;
-	    -ms-transition:all 0.5s ease 1500ms;
-	     -o-transition:all 0.5s ease 1500ms;
+	-webkit-transition:all 0.5s ease 1500ms; 
+	   -moz-transition:all 0.5s ease 1500ms; 
+	    -ms-transition:all 0.5s ease 1500ms; 
+	     -o-transition:all 0.5s ease 1500ms; 
 	        transition:all 0.5s ease 1500ms;
 	-webkit-transform:translateY(-50px);
 	   -moz-transform:translateY(-50px);
@@ -566,9 +566,9 @@ form .input-container.form-error .input-border-bottom{
 }
 
 /*-- form notification --*/
-label.loading,
-label.notif-success,
-label.notif-error,
+label.loading, 
+label.notif-success, 
+label.notif-error, 
 label.error
 {
 	font-family:'Poppins', sans-serif;
@@ -601,9 +601,9 @@ label.loading::before{
 	font-family:'FontAwesome';
 	content:'\f021';
 	-webkit-transform:translateX(-50%);
-	        transform:translateX(-50%);
+	        transform:translateX(-50%);	
 	-webkit-animation: spin 1.5s linear 0s infinite;
-	   -moz-animation: spin 1.5s linear 0s infinite;
+	   -moz-animation: spin 1.5s linear 0s infinite; 
 	        animation: spin 1.5s linear 0s infinite;
 }
 label.notif-success{
@@ -643,7 +643,7 @@ label.loading::before{
 	    -ms-transition:all 0.5s ease;
 	     -o-transition:all 0.5s ease;
 	        transition:all 0.5s ease;
-
+	
 	overflow:hidden;
 	z-index:2;
 }
@@ -741,7 +741,7 @@ label.loading::before{
 }
 
 
-/*-- ============ 4.5 PRELOADERS ============ --*/
+/*-- ============ 4.5 PRELOADERS ============ --*/ 
 .preloader-container{
 	position:fixed;
 	left:0px;
@@ -915,10 +915,10 @@ nav{
 	left:0px;
 	width:100%;
 	z-index:5;
-	-webkit-transition:all 0.5s ease 1500ms;
-	   -moz-transition:all 0.5s ease 1500ms;
-	    -ms-transition:all 0.5s ease 1500ms;
-	     -o-transition:all 0.5s ease 1500ms;
+	-webkit-transition:all 0.5s ease 1500ms; 
+	   -moz-transition:all 0.5s ease 1500ms; 
+	    -ms-transition:all 0.5s ease 1500ms; 
+	     -o-transition:all 0.5s ease 1500ms; 
 	        transition:all 0.5s ease 1500ms;
 	opacity:0;
 }
@@ -948,7 +948,7 @@ nav ul{
 	text-align:center;
 }
 nav ul li{
-	display:inline-block;
+	display:inline-block;	
 	width:100px;
 	text-align:center;
 	padding:0px;
@@ -994,7 +994,7 @@ nav ul li a.active .icon-container::before
 	   -moz-transform: rotateY(360deg);
 	    -ms-transform: rotateY(360deg);
 	     -o-transform: rotateY(360deg);
-	        transform: rotateY(360deg);
+	        transform: rotateY(360deg);	
 	border:2px solid #d7f257;
 }
 nav ul li .icon-container .icon{
@@ -1520,10 +1520,10 @@ section .half-overlay.is-visible{
 	    -ms-transform:translateY(-50%) translateX(50px);
 	     -o-transform:translateY(-50%) translateX(50px);
 	        transform:translateY(-50%) translateX(50px);
-	-webkit-transition:all 0.5s ease 2000ms;
-	   -moz-transition:all 0.5s ease 2000ms;
-	    -ms-transition:all 0.5s ease 2000ms;
-	     -o-transition:all 0.5s ease 2000ms;
+	-webkit-transition:all 0.5s ease 2000ms; 
+	   -moz-transition:all 0.5s ease 2000ms; 
+	    -ms-transition:all 0.5s ease 2000ms; 
+	     -o-transition:all 0.5s ease 2000ms; 
 	        transition:all 0.5s ease 2000ms;
 	opacity:0;
 }
@@ -1543,10 +1543,10 @@ section .half-overlay.is-visible{
 	    -ms-transform:translateX(50px);
 	     -o-transform:translateX(50px);
 	        transform:translateX(50px);
-	-webkit-transition:all 0.5s ease 2300ms;
-	   -moz-transition:all 0.5s ease 2300ms;
-	    -ms-transition:all 0.5s ease 2300ms;
-	     -o-transition:all 0.5s ease 2300ms;
+	-webkit-transition:all 0.5s ease 2300ms; 
+	   -moz-transition:all 0.5s ease 2300ms; 
+	    -ms-transition:all 0.5s ease 2300ms; 
+	     -o-transition:all 0.5s ease 2300ms; 
 	        transition:all 0.5s ease 2300ms;
 	opacity:0;
 }
@@ -1571,10 +1571,10 @@ section .half-overlay.is-visible{
 	text-align:center;
 	text-transform:uppercase;
 	color:white;
-	-webkit-transition:all 0.5s ease;
-	   -moz-transition:all 0.5s ease;
-	    -ms-transition:all 0.5s ease;
-	     -o-transition:all 0.5s ease;
+	-webkit-transition:all 0.5s ease; 
+	   -moz-transition:all 0.5s ease; 
+	    -ms-transition:all 0.5s ease; 
+	     -o-transition:all 0.5s ease; 
 	        transition:all 0.5s ease;
 }
 .home-section .right-side .text-container a::after{
@@ -1585,10 +1585,10 @@ section .half-overlay.is-visible{
 	width:100%;
 	height:2px;
 	background:#d7f257;
-	-webkit-transition:all 0.5s ease;
-	   -moz-transition:all 0.5s ease;
-	    -ms-transition:all 0.5s ease;
-	     -o-transition:all 0.5s ease;
+	-webkit-transition:all 0.5s ease; 
+	   -moz-transition:all 0.5s ease; 
+	    -ms-transition:all 0.5s ease; 
+	     -o-transition:all 0.5s ease; 
 	        transition:all 0.5s ease;
 }
 .home-section .right-side .text-container a{
@@ -1605,7 +1605,7 @@ section .half-overlay.is-visible{
 	left:100%;
 }
 .about-section .bg-container-static{
-	background:url('http://tremendouswallpapers.com/wp-content/uploads/2014/12/juan-jesus-football-hd-wallpaper.jpg') no-repeat;
+	background:url(../img/background/sample2.jpg) no-repeat;
 	background-size:cover;
 	background-position:50% 50%;
 }
@@ -1636,7 +1636,7 @@ section .half-overlay.is-visible{
 	width:90px;
 	height:4px;
 	background:white;
-	text-align:center;
+	text-align:center;	
 }
 .about-section .service{
 	position:relative;
@@ -1982,7 +1982,7 @@ section .half-overlay.is-visible{
 	height:200px;
 }
 .col-height-250{
-	height:250px;
+	height:250px;	
 }
 .col-height-500{
 	height:500px;
@@ -2008,7 +2008,7 @@ canvas#bg-canvas{
 	width:100%;
 	overflow:hidden;
 	height:100%;
-	z-index:-1;
+	z-index:-1;	
 }
 .bg-container::before,
 .bg-container-static::before
@@ -2088,7 +2088,7 @@ canvas#bg-canvas{
 
 
 /*-- ===================================================== --*
-	7.0 STYLE FOR TABLET LANDSCAPE
+	7.0 STYLE FOR TABLET LANDSCAPE 
 /*-- ===================================================== --*/
 @media all and (max-width: 1199px){
 	/*-- ============ 7.1 COLUMNS ============ --*/
@@ -2104,8 +2104,8 @@ canvas#bg-canvas{
 		transform			: translate(0,0);
 	}
 	.col-md-height-auto{ height:auto; }
-
-
+	
+	
 	/*-- ============ 7.2 MARGINS & PADDINGS ============ --*/
 	.col-md-mrg-top-lg{ margin-top:90px; }
 	.col-md-mrg-top-md{ margin-top:60px; }
@@ -2142,9 +2142,9 @@ canvas#bg-canvas{
 	.col-md-pad-left-sm{ padding-left:15px; }
 	.col-md-pad-all-lg{ padding:45px; }
 	.col-md-pad-all-md{ padding:30px; }
-	.col-md-pad-all-sm{ padding:15px; }
-
-
+	.col-md-pad-all-sm{ padding:15px; }	
+	
+	
 	/*-- ============ 7.3 SECTIONS ============ --*/
 	.contact-section .contact-form-container{
 		padding-right:0px;
@@ -2152,9 +2152,9 @@ canvas#bg-canvas{
 }
 
 /*-- ===================================================== --*
-	8.0 STYLE FOR TABLET PORTRAIT
+	8.0 STYLE FOR TABLET PORTRAIT 
 /*-- ===================================================== --*/
-@media all and (max-width: 991px){
+@media all and (max-width: 991px){		
 	/*-- ============ 8.1 SECTIONS ============ --*/
 	section .half-overlay{
 		display:none;
@@ -2190,7 +2190,7 @@ canvas#bg-canvas{
 	.home-section .right-side{
 		margin-top:30px;
 	}
-
+	
 	.about-section .bg-container-static::before,
 	.works-section .bg-container-static::before
 	{
@@ -2204,14 +2204,14 @@ canvas#bg-canvas{
 	.about-section .services-container{
 		margin-top:100px;
 	}
-
+	
 	.works-section .works-container{
 		height:100%;
 		overflow:auto;
 		padding:72px 15px;
 	}
 	.works-section .works-container .work{
-		margin-bottom:100px;
+		margin-bottom:100px;	
 	}
 	.works-section .works-container .text-container{
 		position:relative;
@@ -2225,7 +2225,7 @@ canvas#bg-canvas{
 	.works-section .works-container .img-container{
 		margin-top:30px;
 	}
-
+	
 	.contact-section .content{
 		height:100%;
 		overflow:auto;
@@ -2238,8 +2238,8 @@ canvas#bg-canvas{
 	.contact-section .contact-form-container::before{
 		left:0px;
 	}
-
-
+	
+	
 	/*-- ============ 8.2 COLUMNS ============ --*/
 	.col-sm-rlt{
 		position:relative;
@@ -2253,8 +2253,8 @@ canvas#bg-canvas{
 		transform			: translate(0,0);
 	}
 	.col-sm-height-auto{ height:auto; }
-
-
+	
+	
 	/*-- ============ 8.3 MARGINS & PADDINGS ============ --*/
 	.col-sm-mrg-top-lg{ margin-top:90px; }
 	.col-sm-mrg-top-md{ margin-top:60px; }
@@ -2295,7 +2295,7 @@ canvas#bg-canvas{
 	.col-sm-no-pad{ padding:0px; }
 	.col-sm-no-pad-left{ padding-left:0px; }
 	.col-sm-no-pad-right{ padding-right:0px; }
-
+	
 	/*-- ============ 8.4 MENU ============ --*/
 	nav.large-device{
 		display:none;
@@ -2303,7 +2303,7 @@ canvas#bg-canvas{
 	nav.small-device{
 		display:block;
 	}
-
+	
 	/*-- ============ 8.5 LOGO ============ --*/
 	.img-logo{
 		left:15px;
@@ -2313,9 +2313,9 @@ canvas#bg-canvas{
 }
 
 /*-- ===================================================== --*
-	9.0 STYLE FOR EXTRA SMALL DEVICES
+	9.0 STYLE FOR EXTRA SMALL DEVICES 
 /*-- ===================================================== --*/
-@media all and (max-width: 767px){
+@media all and (max-width: 767px){	
 	/*-- ============ 9.1 TYPOGRAPHY ============ --*/
 	p.separator-line::before{
 		left:-75px;
@@ -2336,8 +2336,8 @@ canvas#bg-canvas{
 		transform			: translate(0,0);
 	}
 	.col-xs-height-auto{ height:auto; }
-
-
+	
+	
 	/*-- ============ 9.3 MARGINS & PADDINGS ============ --*/
 	.col-xs-mrg-top-lg{ margin-top:90px; }
 	.col-xs-mrg-top-md{ margin-top:60px; }
@@ -2376,8 +2376,8 @@ canvas#bg-canvas{
 	.col-xs-pad-all-md{ padding:30px; }
 	.col-xs-pad-all-sm{ padding:15px; }
 	.col-xs-no-pad{ padding:0px; }
-
-
+	
+		
 	/*-- ============ 9.4 SECTION ============ --*/
 	.home-section .content{
 		height:100%;
@@ -2409,11 +2409,11 @@ canvas#bg-canvas{
 		float:left;
 		width:100%;
 	}
-
+	
 	.about-section .left-side{
 		padding-left:90px;
 	}
-
+	
 	.works-section .works-container .text-container{
 		padding-left:75px;
 	}
@@ -2424,7 +2424,7 @@ canvas#bg-canvas{
 	.works-section .works-container .img-container{
 		height:170px;
 	}
-
+	
 	.contact-section .details{
 		padding-left:60px;
 	}
@@ -2442,7 +2442,7 @@ canvas#bg-canvas{
 	.contact-section .contact-form-container h5{
 		padding-left:75px;
 	}
-
+	
 	.subscribe-popup{
 		background:rgba(38,38,38,1);
 	}
@@ -2453,7 +2453,7 @@ canvas#bg-canvas{
 		left:0%;
 		height:100%;
 		padding-bottom:100px;
-		overflow:auto;
+		overflow:auto;		
 		-webkit-transform: rotateX(90deg) translateY(0%);
 		   -moz-transform: rotateX(90deg) translateY(0%);
 		    -ms-transform: rotateX(90deg) translateY(0%);
