@@ -37,7 +37,7 @@ p.quote
 p,
 .basic-text
 {
-	color:#636363;
+	color:#333;
 }
 p.separator-line::before{
 	background:#262626;

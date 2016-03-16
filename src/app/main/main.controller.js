@@ -6,69 +6,40 @@
     .controller('MainController', MainController);
 
   /** @ngInject */
-  function MainController($timeout, webDevTec, toastr,$scope,$http,SocketService,UserService,$translate) {
+  function MainController($timeout, webDevTec, toastr,$scope,$http,SocketService,UserService,$translate,CoreService) {
    
       $scope.runningDate=1352;
-      $scope.lang='Eng';
+      $scope.lang='En';
       $scope.dataPanelOpened=false;
       $scope.loginOpened=false;
-      $scope.username='footballadmin';
-      $scope.password='123123';
-      $scope.loginmsg='Please Log in first';
-      
-      var getRaceList=function(){
-       
-         //Chinese List
-    var raceList =Array();
-       if($translate.use()=='chinese')
-           {
-               for(var i=0;i<A.length;i++)
-    {
-        
-        var race={id:A[i][0],home:A[i][5].replace("<font color=#880000>(中)</font>", ""),away:A[i][8],time:A[i][10],league:B[A[i][1]][2]}
-          raceList.push(race);
-        } 
-               
-           }
-       else
-           {
-              for(var i=0;i<A.length;i++)
-    {
-        
-        var race={id:A[i][0],home:A[i][6].replace("<font color=#880000>(中)</font>", ""),away:A[i][9],time:A[i][10],league:B[A[i][1]][3]}
-          raceList.push(race);
-        }  
-               
-           }
-   
-    
-   return raceList;
-   
-       
-       
-   
-   }
      
+      $scope.loginmsg='APP_LOGIN';
+      
+    
      
       
-  
-      require([
-  'http://score.nowscore.com/data/bf.js?1456213905000','http://cdnjs.cloudflare.com/ajax/libs/seedrandom/2.4.0/seedrandom.min.js'
+    
    
-], function () {
-  
    
+
+      
+    
+    
+      
+      CoreService.getMatches($translate.use())
+                .then(function(list){
+         $scope.list=list;
+         
+      },
+                      function(error){
+          alert(error);
+      });
+
      
-  
-        $scope.list=getRaceList();
-    
-    
    
-        $scope.$apply();
-});
       
       
-   
+      
 
       $scope.getit=function(race){
           
@@ -77,12 +48,14 @@
         
           
           $scope.resultsShown=false;
-          $scope.resultText='Calculating... Please Wait.';
+          $scope.resultText='APP_ANALYZING';
           
-        // if(UserService.isLoggedIn()){
-          if(true){
+        if(UserService.isLoggedIn()){
+        
               $scope.dataPanelOpened=true;
-          }else{$scope.loginOpened=true;}
+          }else{$scope.loginOpened=true;
+               return;
+               }
         
           
           $scope.home=race.home;
@@ -100,7 +73,8 @@
              
              var response=rs.data;
              console.log(response.name)
-                        	$scope.game_name = response.name
+            
+             $scope.game_name = response.name
     		$scope.bet_names = Object.keys(response.data)
     		$scope.data = response.data
 
@@ -481,54 +455,8 @@
        
            
              
-             switch($scope.condition_negative)
-                 {
-                     case 'HOME':
-                         {
-                             Math.seedrandom($scope.home);
-                                var homeRate = Math.random() * (100-51)+51;
-                                var awayRate=100-homeRate;
-                                $scope.data = [homeRate,awayRate];
-                            // console.log(Math.seedrandom());
-                                  // console.log(Math.min(Math.max(parseInt(race[0]/1000), 51), 100))
-                               
-                              $scope.resultsShown = true;
-                             $scope.resultText="Recommended Team : "+$scope.home;
-                                break;
-                         }
-                     case 'AWAY':
-                         {
-                              Math.seedrandom($scope.away);
-                                var away = Math.random() * (100-51)+51;
-                                var home=100-away;
-                                $scope.data = [home,away];
-                                $scope.resultsShown = true;
-                                $scope.resultText="Recommended Team : "+$scope.away;
-
-                                
-                                break;
-                         }
-                     case "DON'T BUY":
-                         {
-                              $scope.resultText="DON'T BUY";
-                              $scope.data = [0,0];
-                               break;
-                         }
-                         
-                         
-                 }
              
-         
-        
-             
-                  }, 
-                        function errorCallback(response) {
-                     $scope.data = [0,0]; 
-                    $scope.resultText=response.data;
-                    
-                  });
-                 
-          /*****************Odds Calculation**********/
+              /*****************Odds Calculation**********/
           $http({
                   method: 'GET',
                   url: 'http://football-back-dev.ap-southeast-1.elasticbeanstalk.com'
@@ -544,22 +472,36 @@
                             var avg_ins = data.avg_ins;
                             
               
-                  $scope.odds_max_lb = ["主胜率", "和率", "客胜率", "返还率"];
+                  if($translate.use()=='english'){
+                         $scope.odds_max_lb = ["主胜率", "和率", "客胜率", "返还率"];
                   $scope.series_max = ['初盘最高值', '即时最高值'];
+                       $scope.odds_min_lb = ["主胜率", "和率", "客胜率", "返还率"];
+                  $scope.series_min = ['初盘最低值', '即时最低值'];  
+                         $scope.odds_avg_lb = ["主胜率", "和率", "客胜率", "返还率"];
+                  $scope.series_avg = ['初盘平均值', '即时平均值'];
+                      
+                  }else
+                    {
+                        $scope.odds_max_lb = ["主胜率", "和率", "客胜率", "返还率"];
+                  $scope.series_max = ['初盘最高值', '即时最高值'];
+                       $scope.odds_min_lb = ["主胜率", "和率", "客胜率", "返还率"];
+                  $scope.series_min = ['初盘最低值', '即时最低值'];  
+                         $scope.odds_avg_lb = ["主胜率", "和率", "客胜率", "返还率"];
+                  $scope.series_avg = ['初盘平均值', '即时平均值'];
+                    }
+                  
                   $scope.odds_max_dt = [
                                 [max[3],max[4],max[5],max[6]],
                                 [max_ins[3],max_ins[4],max_ins[5],max_ins[6]]
                             ];
                   
-                  $scope.odds_min_lb = ["主胜率", "和率", "客胜率", "返还率"];
-                  $scope.series_min = ['初盘最低值', '即时最低值'];
+                 
                   $scope.odds_min_dt = [
                                 [min[3],min[4],min[5],min[6]],
                                 [min_ins[3],min_ins[4],min_ins[5],min_ins[6]]
                             ];
                   
-                  $scope.odds_avg_lb = ["主胜率", "和率", "客胜率", "返还率"];
-                  $scope.series_avg = ['初盘平均值', '即时平均值'];
+                 
                   $scope.odds_avg_dt = [
                                 [avg[3],avg[4],avg[5],avg[6]],
                                 [avg_ins[3],avg_ins[4],avg_ins[5],avg_ins[6]]
@@ -567,16 +509,77 @@
                   
                   
                   
-                  
+                  //***control charts***//
+             switch($scope.condition_negative)
+                 {
+                     case 'HOME':
+                         {
+                             Math.seedrandom($scope.home);
+                                var homeRate = Math.random() * (100-51)+51;
+                                var awayRate=100-homeRate;
+                                $scope.data = [homeRate.toFixed(2),awayRate.toFixed(2)];
+                            // console.log(Math.seedrandom());
+                                  // console.log(Math.min(Math.max(parseInt(race[0]/1000), 51), 100))
+                               
+                              $scope.resultsShown = true;
+                             $scope.resultText="Recommended Team : "+$scope.home;
+                                break;
+                         }
+                     case 'AWAY':
+                         {
+                              Math.seedrandom($scope.away);
+                                var away = Math.random() * (100-51)+51;
+                                var home=100-away;
+                                $scope.data = [home.toFixed(2),away.toFixed(2)];
+                                $scope.resultsShown = true;
+                                $scope.resultText="Recommended Team : "+$scope.away;
+
+                                
+                                break;
+                         }
+                     case "DON'T BUY":
+                         {
+                              $scope.resultText="APP_NOTBUY";
+                              $scope.data = [0,0];
+                               break;
+                         }
+                         
+                         
+                 }
                   
                   
               
               
                     },
               function errorCallback(response){});
+          /*****************End Odds Calculation**********/
+         
+        
+             
+                  }, 
+                        function errorCallback(response) {
+                     $scope.data = [0,0]; 
+                    $scope.resultText="APP_NO_DATA";
+                    
+                  });
+                 
+         
+
+          
           
   }
 
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
       
       $scope.closeDataPanel=function(){
          $scope.dataPanelOpened=false;
@@ -596,6 +599,18 @@
       }
       
       
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
         SocketService.logoutfailed(function(res){
 
                 toastr.error(res)
@@ -608,8 +623,10 @@
                    // toastr.success("Good Bye! ", allowHtml: true})
             })
         SocketService.loginfailed(function(res){
-            console.log('login failed')
-            $scope.loginmsg=res.msg;
+            console.log(res)
+            
+            $scope.loginmsg=res.msg=='Incorrect login infomation'?'APP_LOGIN_FAILED':res.msg;
+            
                        $scope.$apply()
 
 
@@ -629,8 +646,7 @@
 
  	}
         $scope.UserLogin = function(u,p) {
-            $scope.loginmsg='Loggin into your account, please wait...';
-        //$rootScope.buttonDisabled =   1
+        $scope.loginmsg='APP_LOGGING_IN';
        SocketService.emit("login",{ username: u, password: p })
 
                    
@@ -648,7 +664,20 @@
         $scope.changeLanguage = function () {
                 $scope.lang=$translate.use()=='english'?'En':'中';
                 $translate.use($translate.use()=='english'?'chinese':'english');
-            $scope.list=getRaceList();
+            
+              CoreService.getMatches($translate.use())
+                .then(function(list){
+                  $scope.list=list;
+         
+      },
+                      function(error){
+          alert(error);
+      });
+
+           
+        };
+        $scope.getCurLang = function(){
+             return $translate.use();
         };
 
       

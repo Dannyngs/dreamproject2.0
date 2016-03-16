@@ -61,7 +61,7 @@ TABLE OF CONTENTS
 	* 5. Self hosted video background
 	*/
 	$.launch_date = [7,9,2001];											//-- http://www.iwallhd.com/stock/valdes-football-hd-soccer.jpglaunch date [d,m,yyyy], for example 7 September 2016 : [7,9,2016]
-	$.bg_urls = ["app/img/back.jpg"];
+	$.bg_urls = ["app/img/back.jpg","app/img/back.jpg"];
 	$.youtube_url = "";													//-- just the last words after https://www.youtube.com/watch?v=
 	$.self_host_video_path = "";										//-- self hosted video path
 	$.self_host_video_filename = "";									//-- self hosted video filename "WITHOUT .MP4 EXTENSION"

@@ -25,7 +25,7 @@
     HOME: 'Home',
     ABOUT: 'ABOUT',
     APP: 'App',
-    LANGUAGE: 'Language',
+    LANGUAGE: '中文版',
     LOGIN: 'LOGIN TO RACING PRO',LOGINBUT:'Login',
     CONTACT: 'CONTACT',
     RUNNING:'PROJECT HAS BEEN RUNNING FOR',
@@ -54,10 +54,14 @@
     APP_ANALYZING:"Anylyzing...",
     APP_SELECT_RACE:"Please select a race",
     APP_NO_DATA:"Sorry ! Could not get any data yet. Please come back later",
+    APP_NOTBUY:"DON'T BUY",
     TOP3:'Top 3 (Recommended Bets)',
    
     TUTORIAL_TITLE:'TUTORIAL',
-            takepicture:'*Please take the photo of receipt and send it to our company'
+            takepicture:'*Please take the photo of receipt and send it to our company',
+            APP_LOGIN:'Please log in to see the result',
+            APP_LOGGING_IN:'Loggin into your account, please wait...',
+            APP_LOGIN_FAILED:'Incorrect ID or password!'
 
 
 
@@ -66,7 +70,7 @@
      HOME: '首頁',
     ABOUT: '關於我們',
     APP: '程式使用',
-      LANGUAGE:'語言',
+      LANGUAGE:'English',
       LOGIN: '登入 RACING PRO',LOGINBUT:'登入',
     CONTACT: '聯絡我們',
       RUNNING:'本項目已運作',
@@ -94,12 +98,16 @@
       APP_GET_SCORE:"分析",
     APP_ANALYZING:"正在分析數據...",
     APP_SELECT_RACE:"請選擇賽事",
-    APP_NO_DATA:"系統正在分析本場賽事，暫未能提供賽事分析結果，請等等再試",
+    APP_NO_DATA:"暫未能提供賽事分析結果，請稍後再試",
+      APP_NOTBUY:"不建議投注",
     TOP3:'前3名 (建議投注)',
     
       TUTORIAL:'程式教學',
     TUTORIAL_TITLE:'程式教學',
-      takepicture:'*入數後請拍照收據'
+      takepicture:'*入數後請拍照收據',
+      APP_LOGIN:'請先登入戶口',
+            APP_LOGGING_IN:'正在登入，請稍後...',
+      APP_LOGIN_FAILED:'ID或密碼錯誤!'
 
   });
   $translateProvider.preferredLanguage('chinese');

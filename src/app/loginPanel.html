@@ -1,0 +1,55 @@
+ 
+<div   ng-class="{'is-visible':loginOpened}" class="subscribe-popup col-lg-4 col-lg-offset-4 col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 col-xs-12">
+        	<!-- close button -->
+            <a ng-click="closeLoginPanel()" class="close-button hide-subscribe">
+            	<i class="icon fa fa-close"></i>
+            </a>
+            <!-- end close button -->
+
+        	<!-- content -->
+            <div class="content col-xs-12">
+            	<!-- title -->
+                <h4>Dream Project</h4>
+                <!-- end title -->
+
+              
+                <p class="desc mrg-top-sm">{{loginmsg|translate}}</p>
+                <!-- end desc -->
+
+                <!-- data panel -->
+                <div class="subscribe-form-container col-xs-12 no-pad">
+                	<form class="subscribe-form" >
+                		<div class="col-xs-12 no-pad">
+                			<div class="input-container">
+                		   		<input id="" ng-model="username" type="text" name="EMAIL" autocomplete="off" class="subscribe-email" placeholder="ID" value="footballadmin"/>
+
+
+                		   		<div class="input-border-bottom"></div>
+                		   	</div>
+
+												<div class="input-container">
+														<input id="" ng-model="password" type="password" name="EMAIL" autocomplete="off" class="subscribe-email" placeholder="Password" value="123123"/>
+
+
+														<div class="input-border-bottom"></div>
+													</div>
+
+                    		<!-- notification container -->
+                    		<div class="col-xs-12 notif-container no-pad">
+                    			<div class="form-notif"></div>
+                    		</div>
+                    		<!-- end notification container -->
+
+                            <!-- submit button -->
+                            <div class="button-container col-xs-12 no-pad">
+                            	<button type="button" ng-click="UserLogin(username,password)" class="button button-green button-full">Log in</button>
+                            </div>
+                            <!-- end submit button -->
+                		</div>
+                    </form>
+                </div>
+                <!-- end data panel -->
+            </div>
+            <!-- end content -->
+        </div>
+       

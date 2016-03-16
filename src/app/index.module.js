@@ -32,7 +32,7 @@
 
         };
 	})
-      .factory('UserService', ['$rootScope', 'ipCookie', function($rootScope, ipCookie) {
+  .factory('UserService', ['$rootScope', 'ipCookie', function($rootScope, ipCookie) {
 
 
 
@@ -63,6 +63,62 @@
 			}
 		}
 
-	}]);
+	}])
+  .factory('CoreService',function($q){
+      
+      return {
+          getMatches:function(curlang){
+            var deferred = $q.defer();
+            var promise = deferred.promise;
+              
+               //Get Matches List
+              require(['http://score.nowscore.com/data/bf.js?1456213905000','http://cdnjs.cloudflare.com/ajax/libs/seedrandom/2.4.0/seedrandom.min.js'],
+                      function ($) {
+  
+                  
+                  var raceList =Array();
+                  if(curlang=='chinese')
+                  {
+               for(var i=0;i<A.length;i++)
+    {
+        
+        var race={id:A[i][0],home:A[i][5].replace("<font color=#880000>(中)</font>", ""),away:A[i][8],time:A[i][10],league:B[A[i][1]][2]}
+          raceList.push(race);
+        } 
+               
+           }
+                  else
+                  {
+              for(var i=0;i<A.length;i++)
+    {
+        
+        var race={id:A[i][0],home:A[i][6].replace("<font color=#880000>(中)</font>", ""),away:A[i][9],time:A[i][10],league:B[A[i][1]][3]}
+          raceList.push(race);
+        }  
+               
+           }
+              
+               deferred.resolve(raceList);
+              
+              
+              
+              
+          },function(err){deferred.reject(err)});
+              
+             
+              
+              
+              
+              return promise;
+              
+              
+      }//end getMatches
+          
+      }//end CoreService
+      
+    });//end CoreService Factory
 
-})();
+
+  
+  
+  })();
