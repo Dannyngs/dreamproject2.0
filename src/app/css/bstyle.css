@@ -1615,7 +1615,7 @@ section .half-overlay.is-visible{
 	left:100%;
 }
 .about-section .bg-container-static{
-	background:url('http://tremendouswallpapers.com/wp-content/uploads/2014/12/juan-jesus-football-hd-wallpaper.jpg') no-repeat;
+	background:url('../img/back.jpg') no-repeat;
 	background-size:cover;
 	background-position:50% 50%;
 }
@@ -1727,7 +1727,7 @@ section .half-overlay.is-visible{
 	left:200%;
 }
 .works-section .bg-container-static{
-	background:url(http://www.iwallhd.com/stock/valdes-football-hd-soccer.jpg) no-repeat;
+	background:url(../img/back.jpg) no-repeat;
 	background-size:cover;
 	background-position:50% 50%;
 }
@@ -1905,13 +1905,13 @@ section .half-overlay.is-visible{
 
 /*-- 5.2.4 CONTACT SECTION --*/
 .contact-section{
-	left:300%;
+	left:400%;
 }
 .simple .contact-section{
 	left:100%;
 }
 .contact-section .bg-container-static{
-	background:url('http://tremendouswallpapers.com/wp-content/uploads/2014/12/juan-jesus-football-hd-wallpaper.jpg') no-repeat;
+	background:url('../img/back.jpg') no-repeat;
 	background-size:cover;
 	background-position:50% 50%;
 }
@@ -2531,10 +2531,13 @@ a:focus{
     text-decoration: none;
 }
 .terms-section{
-    left:400%;
+    left:300%;
 }
 .terms-section .bg-container-static {
-    background: url(http://www.iwallhd.com/stock/valdes-football-hd-soccer.jpg) no-repeat;
+    background: url(../img/back.jpg) no-repeat;
     background-size: cover;
     background-position: 50% 50%;
+}
+.redfont{
+    color:#e71d36;
 }

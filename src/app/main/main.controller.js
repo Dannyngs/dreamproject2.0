@@ -12,6 +12,8 @@
       $scope.lang='En';
       $scope.dataPanelOpened=false;
       $scope.loginOpened=false;
+     // $scope.username='test123';
+     // $scope.password='123123';
      
       $scope.loginmsg='APP_LOGIN';
       
@@ -453,10 +455,47 @@
         if ($scope.condition_1 == 'NO' || $scope.condition_2 == 'NO') $scope.condition_negative = "DON'T BUY"
 
        
-           
+           //***control charts***//
+             switch($scope.condition_negative)
+                 {
+                     case 'HOME':
+                         {
+                             Math.seedrandom($scope.home);
+                                var homeRate = Math.random() * (100-51)+51;
+                                var awayRate=100-homeRate;
+                                $scope.data = [homeRate.toFixed(2),awayRate.toFixed(2)];
+                           
+                              $scope.resultsShown = true;
+                            
+                             $scope.recTeam=$scope.home;
+                              $scope.resultText="RECONMMENDED";
+                                break;
+                         }
+                     case 'AWAY':
+                         {
+                              Math.seedrandom($scope.away);
+                                var away = Math.random() * (100-51)+51;
+                                var home=100-away;
+                                $scope.data = [home.toFixed(2),away.toFixed(2)];
+                                $scope.resultsShown = true;
+                                  $scope.recTeam=$scope.away;
+                                $scope.resultText="RECONMMENDED";
+
+                                
+                                break;
+                         }
+                     case "DON'T BUY":
+                         {
+                              $scope.resultText="APP_NOTBUY";
+                              $scope.data = [0,0];
+                               break;
+                         }
+                         
+                         
+                 }
              
              
-              /*****************Odds Calculation**********/
+              /*****************Odds Calculation*********
           $http({
                   method: 'GET',
                   url: 'http://football-back-dev.ap-southeast-1.elasticbeanstalk.com'
@@ -509,50 +548,14 @@
                   
                   
                   
-                  //***control charts***//
-             switch($scope.condition_negative)
-                 {
-                     case 'HOME':
-                         {
-                             Math.seedrandom($scope.home);
-                                var homeRate = Math.random() * (100-51)+51;
-                                var awayRate=100-homeRate;
-                                $scope.data = [homeRate.toFixed(2),awayRate.toFixed(2)];
-                            // console.log(Math.seedrandom());
-                                  // console.log(Math.min(Math.max(parseInt(race[0]/1000), 51), 100))
-                               
-                              $scope.resultsShown = true;
-                             $scope.resultText="Recommended Team : "+$scope.home;
-                                break;
-                         }
-                     case 'AWAY':
-                         {
-                              Math.seedrandom($scope.away);
-                                var away = Math.random() * (100-51)+51;
-                                var home=100-away;
-                                $scope.data = [home.toFixed(2),away.toFixed(2)];
-                                $scope.resultsShown = true;
-                                $scope.resultText="Recommended Team : "+$scope.away;
-
-                                
-                                break;
-                         }
-                     case "DON'T BUY":
-                         {
-                              $scope.resultText="APP_NOTBUY";
-                              $scope.data = [0,0];
-                               break;
-                         }
-                         
-                         
-                 }
+                  
                   
                   
               
               
                     },
               function errorCallback(response){});
-          /*****************End Odds Calculation**********/
+         ***************End Odds Calculation**********/
          
         
              

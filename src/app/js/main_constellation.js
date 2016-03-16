@@ -69,7 +69,7 @@ TABLE OF CONTENTS
 	$.map_marker_url = "app/img/marker.png";								//-- Map marker image url
 	$.map_marker_info = '<h6 class="text-darkgrey">Main Office</h6><p class="map-marker-info">Open at 09:00 - 15:00<br>Monday till Saturday</p>';
 	$.enable_wordrotator = true;										//-- enabling wordrotator on headline text
-	$.wordrotator_words = ['<h4>Professional horse racing program</h4>','<h4>Data analysis of competition</h4>'];	//-- Array of words, for headline text
+	$.wordrotator_words = ['<h4>Professional football analysis program</h4>','<h4>Data analysis of competition</h4>','<h4>Simple and easy to use</h4>'];	//-- Array of words, for headline text
 
 
 	/*-- ================================ --

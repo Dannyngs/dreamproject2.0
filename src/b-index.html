@@ -19,7 +19,7 @@
     <!-- endinject -->
     <!-- endbuild -->
   </head>
-  <body ng-controller="MainController">
+  <body ng-controller="MainController" oncopy="return false;">
     <!--[if lt IE 10]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
@@ -50,7 +50,7 @@
                 </li>
                 <li>
                 	<a class="menu-link" data-section="about" data-section-pos="100" href="#">
-                    	<div class="icon-container"><span class="icon icon-book-open"></span></div>
+                    	<div class="icon-container"><span class="icon icon-info"></span></div>
                         <div class="text" translate="ABOUT">About</div>
                     </a>
                 </li>
@@ -62,14 +62,14 @@
                 </li>
                 
                  <li>
-                	<a class="menu-link" data-section="terms" data-section-pos="400"  href="#">
+                	<a class="menu-link" data-section="terms" data-section-pos="300"  href="#">
                     	<div class="icon-container"><span class="icon icon-book-open"></span></div>
                         <div class="text" translate="TERMS">Terms</div>
                     </a>
                 </li>
                
                 <li>
-                	<a class="menu-link" data-section="contact" data-section-pos="300"  href="#">
+                	<a class="menu-link" data-section="contact" data-section-pos="400"  href="#">
                     	<div class="icon-container"><span class="icon icon-earphones-alt"></span></div>
                         <div class="text" translate="CONTACT">Contact</div>
                     </a>
@@ -79,7 +79,7 @@
                 
                  <li>
                 	<a class="menu-link"  ng-click="changeLanguage('chinese')" href="">
-                    	<div class="icon-container"><span class="icon icon-bubble"></span></div>
+                    	<div class="icon-container"><span class="icon icon-directions"></span></div>
                         <div class="text" translate="LANGUAGE">Language</div>
                     </a>
                 </li>
@@ -109,18 +109,18 @@
                 </li>
                 <li>
                 	<a class="menu-link" data-section="about" data-nav-title="about" data-section-pos="100" href="#">
-                    	<span class="icon-container"><i class="icon icon-book-open"></i></span>
+                    	<span class="icon-container"><i class="icon icon-info"></i></span>
                         <span class="text" translate="ABOUT">About</span>
                     </a>
                 </li>
                 <li>
-                	<a class="menu-link" data-section="works" data-nav-title="works" data-section-pos="200" href="#">
-                    	<span class="icon-container"><i class="icon icon-vector"></i></span>
+                	<a class="menu-link" data-section="works" data-nav-title="app" data-section-pos="200" href="#">
+                    	<span class="icon-container"><i class="icon icon-diamond"></i></span>
                         <span class="text" translate="APP">App</span>
                     </a>
                 </li>
                  <li>
-                	<a class="menu-link" data-section="terms" data-section-pos="400"  href="#">
+                	<a class="menu-link" data-section="terms" data-section-pos="400" data-nav-title="terms" href="#">
                     	<div class="icon-container"><span class="icon icon-book-open"></span></div>
                         <div class="text" translate="TERMS">Terms</div>
                     </a>
@@ -134,7 +134,7 @@
                 
                 <li>
                 	<a class="menu-link"  ng-click="changeLanguage('chinese')" href="">
-                    	<span class="icon-container"><i class="icon icon-bubble"></i></span>
+                    	<span class="icon-container"><i class="icon icon-directions"></i></span>
                         <div class="text" translate="LANGUAGE">Language</div>
                     </a>
                 </li>
@@ -181,7 +181,7 @@
                 	    	<h1>DREAM PROJECT</h1>
 
                 	    	<div class="sub-title" id="wordsrotator">
-                		    	<h4 style="" translate="SLIDE1">Professional football analysis program</h4>
+                		    	<h4 style="" >Professional football analysis program</h4>
                                
                 	    	</div>
                 	    	<!-- end headline -->
@@ -260,7 +260,7 @@
                     	    	<div class="service">
                     		    	<!-- icon container -->
                         	    	<div class="icon-container">
-                        		    	<i class="icon icon-pencil"></i>
+                        		    	<i class="icon icon-layers"></i>
                         	    	</div>
                         	    	<!-- end icon container -->
 
@@ -277,7 +277,7 @@
                     	    	<div class="service">
                     		    	<!-- icon container -->
                         	    	<div class="icon-container">
-                        		    	<i class="icon icon-ghost"></i>
+                        		    	<i class="icon icon-check"></i>
                         	    	</div>
                         	    	<!-- end icon container -->
 
@@ -348,98 +348,9 @@
               </section>
               <!-- end works section -->
 
-                <!-- contact section -->
-            	<section class="contact-section"> 
-        	    	<!-- section background -->
-        	    	<div class="bg-container-static"></div>
-                	<!-- end section background -->
-
-                	<!-- half overlay -->
-                	<div class="half-overlay right"></div>
-                	<!-- end half overlay -->
-
-                	<!-- content -->
-                	<div class="content col-md-10 col-md-offset-1 col-sm-12 col-xs-12 no-pad centering-y col-sm-rlt">
-            	    	<!-- details -->
-                    	<div class="col-md-6 col-sm-12">
-                	    	<!-- office -->
-                        	<div class="details">
-                    	    	<h5 translate="CONTACT_GT2">電話(Whatsapp)</h5>
-                                <h6>+852 5663 2361</h6>
-                                <p></p>
-
-                        	</div>
-                            
-                        	<!-- end office -->
-
-                        	
-
-                        	<!-- social media -->
-                        	<div class="details">
-                    	    	<h5>Facebook</h5>
-
-                            	<!-- social media container -->
-                            	<div class="social-media-container">
-            				    	<a class="social-media" target="blank" href="https://www.facebook.com/dreamprojecthk/"><i class="fa fa-facebook"></i></a>
-                        	    	
-                            	</div>
-                            	<!-- end social media container -->
-                        	</div>
-                        	<!-- end social media -->
-                            
-                            
-                            <!-- office -->
-                        	<div class="details">
-                    	    	<h5  translate="CONTACT_GT1"></h5>
-                                <h6  translate="CONTACT_GC1"></h6>
-                                
-
-                        	</div>
-                           
-                            
-                            
-                    	</div>
-                    	<!-- end details -->
-                        
-                      
-                    	<!-- end details -->
-
-                    	<!-- details -->
-                    	<div class="col-md-6 col-sm-12">
-                	    	<!-- office -->
-                        	<div class="details">
-                    	    	<h5 translate="CONTACT_GT3"></h5>
-                                <h6 translate="CONTACT_GC3"></h6>
-                                <p></p>
-
-                        	</div>
-                            
-                            <div class="details">
-                    	    	<h5 translate="CONTACT_GT4"></h5>
-                                <h6 translate="CONTACT_GC4"></h6>
-                                <p></p>
-
-                        	</div>
-                            
-                            <p class="text-right" translate="takepicture"></p>
-                            
-                        	<!-- end office -->
-
-                        	
-
-                        	
-                           
-                            
-                            
-                    	</div>
-                    	<!-- end details -->
-                	</div>
-                	<!-- end content -->
-            	</section>
-            	<!-- end contact section -->
+             
                 
-                
-                  <!-- works section -->
+                     <!-- works section -->
               <section class="terms-section works-section ">
                 <!-- section background -->
                 <div class="bg-container-static"></div>
@@ -544,11 +455,105 @@ In no event will DREAM PROJECT and its affiliates or the owners, officers, emplo
                   </div>
                      
                       <!-- end work 1 -->
-                  </div>
+                  
                   <!-- end content -->
               </section>
               <!-- end works section -->
+               
+                       <!-- contact section -->
+            	<section class="contact-section"> 
+        	    	<!-- section background -->
+        	    	<div class="bg-container-static"></div>
+                	<!-- end section background -->
+
+                	<!-- half overlay -->
+                	<div class="half-overlay right"></div>
+                	<!-- end half overlay -->
+
+                	<!-- content -->
+                	<div class="content col-md-10 col-md-offset-1 col-sm-12 col-xs-12 no-pad centering-y col-sm-rlt">
+            	    	<!-- details -->
+                    	<div class="col-md-6 col-sm-12">
+                	    	<!-- office -->
+                        	<div class="details">
+                    	    	<h5 class="redfont" translate="CONTACT_GT2">電話(Whatsapp)</h5>
+                                <h6>+852 5663 2361</h6>
+                                <p></p>
+
+                        	</div>
+                            
+                        	<!-- end office -->
+
+                        	
+
+                        	<!-- social media -->
+                        	<div class="details">
+                    	    	<h5 class="redfont">Facebook</h5>
+
+                            	<!-- social media container -->
+                            	<div class="social-media-container">
+            				    	<a class="social-media" target="blank" href="https://www.facebook.com/dreamprojecthk/"><i class="fa fa-facebook"></i></a>
+                        	    	
+                            	</div>
+                            	<!-- end social media container -->
+                        	</div>
+                        	<!-- end social media -->
+                            
+                            
+                            <!-- office -->
+                        	<div class="details">
+                    	    	<h5  class="redfont" translate="CONTACT_GT1"></h5>
+                                <h6  translate="CONTACT_GC1"></h6>
+                                
+
+                        	</div>
+                           
+                            
+                            
+                    	</div>
+                    	<!-- end details -->
+                        
+                      
+                    	<!-- end details -->
+
+                    	<!-- details -->
+                    	<div class="col-md-6 col-sm-12">
+                	    	<!-- office -->
+                        	<div class="details">
+                    	    	<h5 class="redfont" translate="CONTACT_GT3"></h5>
+                                <h6 translate="CONTACT_GC3"></h6>
+                                <p></p>
+
+                        	</div>
+                            
+                            <div class="details">
+                    	    	<h5 class="redfont" translate="CONTACT_GT4"></h5>
+                                <h6 translate="CONTACT_GC4"></h6>
+                                <p></p>
+
+                        	</div>
+                            
+                            <p class="text-right" translate="takepicture"></p>
+                            
+                        	<!-- end office -->
+
+                        	
+
+                        	
+                           
+                            
+                            
+                    	</div>
+                    	<!-- end details -->
+                	</div>
+                	<!-- end content -->
+            	</section>
+            	<!-- end contact section -->
                 
+               
+              
+                
+             
                 
                 
             </div>
