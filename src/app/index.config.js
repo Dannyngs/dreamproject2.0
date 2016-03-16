@@ -55,7 +55,7 @@
     APP_SELECT_RACE:"Please select a race",
     APP_NO_DATA:"Sorry ! Could not get any data yet. Please come back later",
     APP_NOTBUY:"DON'T BUY",
-    RECONMMENDED:'Recommended team : {{team}}',
+    RECONMMENDED:'Recommended team : {{team}}(handicap)',
     HANDICAP:'(handicap)',
    
     TUTORIAL_TITLE:'TUTORIAL',
@@ -101,7 +101,7 @@
     APP_SELECT_RACE:"請選擇賽事",
     APP_NO_DATA:"暫未能提供賽事分析結果，請稍後再試",
       APP_NOTBUY:"不建議投注",
-    RECONMMENDED:'建議投注 : {{team}}',
+    RECONMMENDED:'建議投注 : {{team}}(讓球)',
     HANDICAP:'(讓球)',
     
       TUTORIAL:'程式教學',
