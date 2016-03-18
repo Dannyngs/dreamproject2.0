@@ -464,8 +464,8 @@ TABLE OF CONTENTS
 
 		//-- 6.19 activate countdown
 		//if($('#countdown').is(':visible')){
-            console.log(1212211221)
-		
+          
+		 // $("img.lazy").lazyload();
 		//}
 
 		//-- 6.20 init 1 column carousel

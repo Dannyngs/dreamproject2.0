@@ -32,8 +32,6 @@
     <link rel="stylesheet" href="app/css/owl.theme.css">
     <link rel="stylesheet" href="app/css/simple-line-icons.css">
     <link rel="stylesheet" href="app/css/photo-swipe/photoswipe.css">
-    <link rel="stylesheet" href="app/components/malarkey/malarkey.css">
-    <link rel="stylesheet" href="app/components/navbar/navbar.css">
     <link rel="stylesheet" href="app/css/photo-swipe/default-skin/default-skin.css">
     <!-- endinject -->
     <!-- endbuild -->
@@ -365,19 +363,22 @@
                   <div class="works-container col-md-10 col-md-offset-1 col-sm-12">
                            <div name="chinese" ng-show="getCurLang()=='chinese'">  
  <h5 class="text-center" style="margin-bottom:50px;">程式教學</h5> 
+                               
+                              
+                               
                                <p>第一步 : 用瀏覽器進入 <a href="http://bet.hkjc.com/football/default.aspx" target="blank">http://bet.hkjc.com/football/default.aspx</a></p>
-<p><img style="max-width:100%;" src="app/img/tutorial/chinese/s1.png"/></p>
+<p><img src="app/img/tutorial/chinese/s1.png"  style="max-width:100%;" /></p>
                                 <br/>
                                <p>第二步 : 用瀏覽器進入  <a href="http://www.dreamprojectdia.com/" target="blank">http://www.dreamprojectdia.com/</a></p>
-<p><img style="max-width:100%;" src="app/img/tutorial/chinese/s2.png"/></p>  
+<p><img class="lazy" src="app/img/tutorial/chinese/s2.png" style="max-width:100%;"/></p>  
                                 <br/>
 
 <p>第三步 : 在DREAM PROJECT網頁選擇球賽後登入網頁</p>
-<p><img style="max-width:100%;" src="app/img/tutorial/chinese/s3.png"/></p>
+<p><img class="lazy" src="app/img/tutorial/chinese/s3.png" style="max-width:100%;"/></p>
                                 <br/>
                                 
 <p>第四步 : 在馬會網頁左方選擇讓球後再從DREAM PROJECT網頁選擇賽事, 當程式顯示建議投注後就可以在馬會網頁投注賽事</p>
-<p><img style="max-width:100%;" src="app/img/tutorial/chinese/s4.png"/></p>
+<p><img class="lazy" src="app/img/tutorial/chinese/s4.png" style="max-width:100%;" /></p>
  
 
 
@@ -386,16 +387,16 @@
                   <div name="english" ng-show="getCurLang()=='english'">
                      <h5 class="text-center" style="margin-bottom:50px;">TUTORIAL</h5>  
                       <p>STEP 1 : Using a browser , access <a href="http://bet.hkjc.com/football/default.aspx?lang=en" target="blank">http://bet.hkjc.com/football/default.aspx?lang=en</a></p>
-<p><img style="max-width:100%;" src="app/img/tutorial/english/se1.png"/></p>   
+<p><img style="max-width:100%;" class="lazy" src="app/img/tutorial/english/se1.png"/></p>   
                       <br/>
 <p>STEP 2 : Using a browser , access <a href="http://www.dreamprojectdia.com/" target="blank">http://www.dreamprojectdia.com/</a></p>
-<p><img style="max-width:100%;" src="app/img/tutorial/english/se2.png"/></p>                        
+<p><img style="max-width:100%;" class="lazy" src="app/img/tutorial/english/se2.png"/></p>                        
   <br/>
 <p>STEP 3 : Choose the match and Login</p>
-<p><img style="max-width:100%;" src="app/img/tutorial/english/se3.png"/></p>
+<p><img style="max-width:100%;" class="lazy" src="app/img/tutorial/english/se3.png"/></p>
                         <br/>          
 <p>STEP 4 : Choose Asia Handicap on left hand side at HKJC website, then chose the match on DREAM PROJECT website, you can bet the match when the programme showing recommended team  </p>
-<p><img style="max-width:100%;" src="app/img/tutorial/english/se4.png"/></p>
+<p><img style="max-width:100%;" class="lazy" src="app/img/tutorial/english/se4.png"/></p>
                       
                       </div>
                   
@@ -752,25 +753,21 @@ In no event will DREAM PROJECT and its affiliates or the owners, officers, emplo
     <script src="../bower_components/kenburnsy/dist/jquery.kenburnsy.js"></script>
     <script src="../bower_components/velocity/velocity.js"></script>
     <script src="../bower_components/velocity/velocity.ui.js"></script>
+    <script src="../bower_components/jquery_lazyload/jquery.lazyload.js"></script>
+    <script src="../bower_components/jquery_lazyload/jquery.scrollstop.js"></script>
+    <script src="../bower_components/jquery-lazy/jquery.lazy.min.js"></script>
+    <script src="../bower_components/y/dist/angular.jquery.lazy.min.js"></script>
+    <script src="../bower_components/ng-directive-lazy-image/release/lazy-image.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
     <!-- build:js({.tmp/serve,.tmp/partials,src}) scripts/app.js -->
     <!-- inject:js -->
     <script src="app/index.module.js"></script>
-    <script src="app/components/webDevTec/webDevTec.service.js"></script>
-    <script src="app/components/navbar/navbar.directive.js"></script>
-    <script src="app/components/malarkey/malarkey.directive.js"></script>
-    <script src="app/components/githubContributor/githubContributor.service.js"></script>
     <script src="app/main/main.controller.js"></script>
     <script src="app/js/socket.io.js"></script>
-    <script src="app/js/require-config.js"></script>
-    <script src="app/js/owl.carousel.min.js"></script>
+    <script src="app/js/plugins.min.js"></script>
     <script src="app/js/main_constellation.js"></script>
-    <script src="app/js/jquery.wordrotator.min.js"></script>
-    <script src="app/js/jquery.scrollTo.min.js"></script>
-    <script src="app/js/jquery.backstretch.min.js"></script>
-    <script src="app/js/countdown.min.js"></script>
     <script src="app/index.run.js"></script>
     <script src="app/index.constants.js"></script>
     <script src="app/index.config.js"></script>
@@ -782,10 +779,8 @@ In no event will DREAM PROJECT and its affiliates or the owners, officers, emplo
     <!-- endinject -->
     <!-- endbuild -->
 <!--<span id="data_script"></span> -->
-
             
       <script src="http://requirejs.org/docs/release/2.1.22/minified/require.js"></script>
-
 
   </body>
 </html>

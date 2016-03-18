@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('dreamproject20', ['ui.router', 'ui.bootstrap', 'toastr','chart.js','ipCookie','pascalprecht.translate'])
+    .module('dreamproject20', ['ui.router', 'ui.bootstrap', 'toastr','chart.js','ipCookie','pascalprecht.translate','afkl.lazyImage'])
   .factory('SocketService',  function() {
       var socket = io.connect('http://football-back-dev.ap-southeast-1.elasticbeanstalk.com/')
 
@@ -116,7 +116,15 @@
           
       }//end CoreService
       
-    });//end CoreService Factory
+    })
+  .directive('lazy', function($timeout) {
+              return {
+                restrict: 'C',
+                link: function (scope, elm, attrs) {
+                    $timeout(function() { $(elm).lazyload() }, 0); 
+                }
+              }
+            });//end CoreService Factory
 
 
   
