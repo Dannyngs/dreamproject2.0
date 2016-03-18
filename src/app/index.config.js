@@ -36,7 +36,7 @@
     HOME_DESC:'Our company, DREAM PROJECT, has invested football matches for many years. Our company owns a very strong football matches database. What’s more, we hire specially-assigned persons to analyze each competition in order to make football matches becomes a professional investment with abundant profits.',
     ABOUT_CONTENT:'Our company, DREAM PROJECT, has invested football matches for many years. Our company owns a very strong football matches database. What’s more, we hire specially-assigned persons to analyze each competition in order to make football matches becomes a professional investment with abundant profits.  All football matches are calculated by the program and data. When the data meet the requirement, the program will provide some information for you to bet.Professional football program DREAM PROJECT collects one-off fee, and members may use it permanently. We provide independent entry account for each person.',
     ABOUT_GT1:'STRONG DATABASE',ABOUT_GT2:'AFTER-SALE SERVICE',ABOUT_GT3:'PROFESSIONAL ANALYSIS',
-    ABOUT_GC1:'Our company owns horse racing data for many years',
+    ABOUT_GC1:'Our company owns football matches data for many years',
     ABOUT_GC2:'Answer all questions about the program and matches to members' ,
     ABOUT_GC3:'In order to improve the winning rate, specially-assigned persons analyze each match'   ,
 
@@ -82,7 +82,7 @@
       HOME_DESC:'本公司 DREAM PROJECT 多年來鑽研足球賽事, 公司擁有超強大足球賽事數據庫,更有專人分析每場賽事, 令到足球變成一項專業而帶有豐厚利益的投資.',
     ABOUT_CONTENT:"本公司 DREAM PROJECT 多年來鑽研足球賽事, 公司擁有超強大足球賽事數據庫,更有專人分析每場賽事, 令到足球變成一項專業而帶有豐厚利益的投資.所有足球賽事用程式及數據計算,當數據達到要求就可以投注賽事.DREAM PROJECT專業足球程式一次性收費,永久使用,所有會員設有獨立登入户口.",
        ABOUT_GT1:'強大數據庫',ABOUT_GT2:'售後服務',ABOUT_GT3:'專業分析',
-    ABOUT_GC1:'本公司擁有多年來賽馬數據',
+    ABOUT_GC1:'本公司擁有多年來足球數據',
     ABOUT_GC2:'解答會員所有程式或賽事問題' ,
     ABOUT_GC3:'專人分析每場賽事,令到勝率大大提高',
     TERMS:'服務條款',
