@@ -7,7 +7,11 @@
 
   /** @ngInject */
   function MainController($scope,$http,SocketService,UserService,$translate,CoreService) {
-   var startday = new Date("2012-10-1"); 
+   
+      
+    
+      var startday = new Date().setFullYear(2012,9,1); 
+      
       var nowdate=(new Date()-startday)/1000/60/60/24; 
       $scope.runningDate=nowdate.toFixed(0);
       $scope.lang='En';
