@@ -22,7 +22,6 @@
      
       $scope.loginmsg='APP_LOGIN';
       
-    //$("img.lazy").lazyload();
      
      
    
@@ -71,11 +70,16 @@
           $scope.data = [0,0];
           $scope.odds_max_dt = [0,0];$scope.odds_avg_dt = [0,0];$scope.odds_min_dt = [0,0];
           
-         $http({
+          
+          async.parallel([
+                function(callback){
+               
+                   $http({
                   method: 'POST',
                   url: 'http://football-back-dev.ap-southeast-1.elasticbeanstalk.com/api/scores',
                 data:{url:'http://score.nowscore.com/odds/match.aspx?id='+race.id}
-                }).then(function successCallback(rs) {
+                }).then(
+             function successCallback(rs) {
              
              var response=rs.data;
              console.log(response.name)
@@ -458,48 +462,22 @@
         //if STEP 1 busts, then don't buy
         if ($scope.condition_1 == 'NO' || $scope.condition_2 == 'NO') $scope.condition_negative = "DON'T BUY"
 
-       
-           //***control charts***//
-             switch($scope.condition_negative)
-                 {
-                     case 'HOME':
-                         {
-                             Math.seedrandom($scope.home);
-                                var homeRate = Math.random() * (100-51)+51;
-                                var awayRate=100-homeRate;
-                                $scope.data = [homeRate.toFixed(2),awayRate.toFixed(2)];
-                           
-                              $scope.resultsShown = true;
-                            
-                             $scope.recTeam=$scope.home;
-                              $scope.resultText="RECONMMENDED";
-                                break;
-                         }
-                     case 'AWAY':
-                         {
-                              Math.seedrandom($scope.away);
-                                var away = Math.random() * (100-51)+51;
-                                var home=100-away;
-                                $scope.data = [home.toFixed(2),away.toFixed(2)];
-                                $scope.resultsShown = true;
-                                  $scope.recTeam=$scope.away;
-                                $scope.resultText="RECONMMENDED";
+                       console.log('teslk1;'+$scope.condition_negative)
 
-                                
-                                break;
-                         }
-                     case "DON'T BUY":
-                         {
-                              $scope.resultText="APP_NOTBUY";
-                              $scope.data = [0,0];
-                               break;
-                         }
-                         
-                         
-                 }
+         callback(null,1)
              
              
-              /*****************Odds Calculation*********
+        
+             
+                  }, 
+                        function errorCallback(response) {
+                     $scope.data = [0,0]; 
+                    $scope.resultText="APP_NO_DATA";
+                    
+                  });
+                  
+              },
+                function(callback){
           $http({
                   method: 'GET',
                   url: 'http://football-back-dev.ap-southeast-1.elasticbeanstalk.com'
@@ -554,21 +532,64 @@
                   
                   
                   
-                  
+                                  console.log('task2 done;')
+                                    callback(null,2)
               
               
                     },
               function errorCallback(response){});
-         ***************End Odds Calculation**********/
-         
-        
+       
+                     
+       
+                }],
+                function(error,results){
+                console.log('resulting;'+$scope.condition_negative)
+                  //***Output Result***//
+             switch($scope.condition_negative)
+                 {
+                     case 'HOME':
+                         {
+                             Math.seedrandom($scope.home);
+                                var homeRate = Math.random() * (100-51)+51;
+                                var awayRate=100-homeRate;
+                                $scope.data = [homeRate.toFixed(2),awayRate.toFixed(2)];
+                           
+                              $scope.resultsShown = true;
+                            
+                             $scope.recTeam=$scope.home;
+                              $scope.resultText="RECONMMENDED";
+                                                          
+
+                                break;
+                         }
+                     case 'AWAY':
+                         {
+                              Math.seedrandom($scope.away);
+                                var away = Math.random() * (100-51)+51;
+                                var home=100-away;
+                                $scope.data = [home.toFixed(2),away.toFixed(2)];
+                                $scope.resultsShown = true;
+                                  $scope.recTeam=$scope.away;
+                                $scope.resultText="RECONMMENDED";
+
+                                
+                                break;
+                         }
+                     case "DON'T BUY":
+                         {
+                              $scope.resultText="APP_NOTBUY";
+                              $scope.data = [0,0];
+                               break;
+                         }
+                         
+                         
+                 }
              
-                  }, 
-                        function errorCallback(response) {
-                     $scope.data = [0,0]; 
-                    $scope.resultText="APP_NO_DATA";
-                    
-                  });
+                
+            });
+          
+          
+        
                  
          
 
