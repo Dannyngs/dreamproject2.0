@@ -494,11 +494,11 @@
                             
               
                   if($translate.use()=='english'){
-                         $scope.odds_max_lb = ["HOME", "DRAW", "AWAY", "Return"];
+                         $scope.odds_max_lb = ["Home", "Draw", "Away", "Return"];
                   $scope.series_max = ['Highest First Odds', 'Highest Odds'];
-                       $scope.odds_min_lb = ["HOME", "DRAW", "AWAY", "返还率"];
+                       $scope.odds_min_lb = ["Home", "Draw", "Away", "Return"];
                   $scope.series_min = ['Lowest First Odds', 'Lowest Odds'];  
-                         $scope.odds_avg_lb = ["HOME", "DRAW", "AWAY", "返还率"];
+                         $scope.odds_avg_lb = ["Home", "Draw", "Away", "Return"];
                   $scope.series_avg = ['Average First Odds', 'Average Odds'];
                       
                   }else
