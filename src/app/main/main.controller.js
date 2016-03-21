@@ -494,12 +494,12 @@
                             
               
                   if($translate.use()=='english'){
-                         $scope.odds_max_lb = ["主胜率", "和率", "客胜率", "返还率"];
-                  $scope.series_max = ['初盘最高值', '即时最高值'];
-                       $scope.odds_min_lb = ["主胜率", "和率", "客胜率", "返还率"];
-                  $scope.series_min = ['初盘最低值', '即时最低值'];  
-                         $scope.odds_avg_lb = ["主胜率", "和率", "客胜率", "返还率"];
-                  $scope.series_avg = ['初盘平均值', '即时平均值'];
+                         $scope.odds_max_lb = ["HOME", "DRAW", "AWAY", "Return"];
+                  $scope.series_max = ['Highest First Odds', 'Highest Odds'];
+                       $scope.odds_min_lb = ["HOME", "DRAW", "AWAY", "返还率"];
+                  $scope.series_min = ['Lowest First Odds', 'Lowest Odds'];  
+                         $scope.odds_avg_lb = ["HOME", "DRAW", "AWAY", "返还率"];
+                  $scope.series_avg = ['Average First Odds', 'Average Odds'];
                       
                   }else
                     {
