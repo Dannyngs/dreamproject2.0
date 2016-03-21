@@ -19,7 +19,9 @@
       $scope.loginOpened=false;
      // $scope.username='test123';
      // $scope.password='123123';
-     
+     $scope.line1_color=[ '#FDB45C','#DCDCDC', '#00ADF9', '#DCDCDC',  '#949FB1', '#4D5360'] ;
+       $scope.line2_color=[  '#46BFBD','#DCDCDC','#803690', '#00ADF9', '#DCDCDC',  '#949FB1', '#4D5360'] ;
+       $scope.line3_color=[  '#F44448','#DCDCDC','#803690', '#00ADF9', '#DCDCDC',  '#949FB1', '#4D5360'] ;
       $scope.loginmsg='APP_LOGIN';
       
      
