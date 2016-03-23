@@ -204,6 +204,7 @@ TABLE OF CONTENTS
 		});
 
 		//-- 6.3 menu link clicked
+        /*
 		$('.menu-link').on('click',function(){
 			//-- set new active menu
 			$('nav').find('.active').removeClass('active');
@@ -230,7 +231,36 @@ TABLE OF CONTENTS
 				$('nav.small-device .nav-title').html($('nav.small-device ul').find('.active').data('nav-title'));
 			}
 		});
+        */
+        	$('.menu-link').on('click',function(){
+			//-- set new active menu
+			$('nav').find('.active').removeClass('active');
+			$(this).addClass('active');
 
+			//-- slide the section-container
+			var current_section = $(this).data('section');
+			var section_pos = $(this).data('section-pos');
+
+			$('.section-container').css({
+				'transform': 'translateX(-'+section_pos+'%)',
+				'-webkit-transform': 'translateX(-'+section_pos+'%)'
+			});
+
+			//-- hide & show the half overlay
+			$('section').each(function(index, element) {
+                $(this).find('.half-overlay').removeClass('is-visible');
+            });
+			$('.'+current_section+'-section').find('.half-overlay').addClass('is-visible');
+
+			//-- hide the menu & change nav-title (only on small devices)
+			if($(window).width() < 769){
+				$('nav.small-device ul').removeClass('is-visible');
+
+				$('nav.small-device .nav-title').html($('nav.small-device ul').find('.active').data('nav-title'));
+			}
+		});
+
+        
 		//-- 6.4 show subscribe button clicked
 		$('.show-subscribe').on('click',function(){
 			$('.subscribe-popup').addClass('is-visible');
