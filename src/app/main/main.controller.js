@@ -6,7 +6,7 @@
     .controller('MainController', MainController);
 
   /** @ngInject */
-  function MainController($scope,$http,SocketService,UserService,$translate,CoreService) {
+  function MainController($scope,$http,SocketService,UserService,$translate,CoreService,toastr) {
    
       
     
@@ -78,7 +78,8 @@
                
                    $http({
                   method: 'POST',
-                  url: 'http://football-back-dev.ap-southeast-1.elasticbeanstalk.com/api/scores',
+                 // url: 'http://football-back-dev.ap-southeast-1.elasticbeanstalk.com/api/scores',
+                       url:'http://deamprojectback.ap-southeast-1.elasticbeanstalk.com/api/scores',
                 data:{url:'http://score.nowscore.com/odds/match.aspx?id='+race.id}
                 }).then(
              function successCallback(rs) {
@@ -482,7 +483,8 @@
                 function(callback){
           $http({
                   method: 'GET',
-                  url: 'http://football-back-dev.ap-southeast-1.elasticbeanstalk.com'
+                  //url: 'http://football-back-dev.ap-southeast-1.elasticbeanstalk.com'
+              url:'http://deamprojectback.ap-southeast-1.elasticbeanstalk.com',
                 }).then(
               function successCallback(rs){
               
@@ -665,6 +667,7 @@
                     console.log('login ok')
                     UserService.login(res)
                     $scope.loginOpened=false;
+                    toastr.success('登入成功！','Login Succeeded')
             $scope.$apply()
                     
             })
