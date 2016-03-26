@@ -473,7 +473,7 @@
         
              
                   }, 
-                        function errorCallback(response) {
+              function errorCallback(response) {
                      $scope.data = [0,0]; 
                     $scope.resultText="APP_NO_DATA";
                     
@@ -481,6 +481,7 @@
                   
               },
                 function(callback){
+                    callback(null,2);
           $http({
                   method: 'GET',
                   //url: 'http://football-back-dev.ap-southeast-1.elasticbeanstalk.com'
@@ -537,12 +538,14 @@
                   
                   
                                   console.log('task2 done;')
-                                    callback(null,2)
+                                    //callback(null,2)
               
               
                     },
-              function errorCallback(response){});
-       
+              function errorCallback(response){
+                  
+                //$scope.resultText="APP_NO_DATA";  
+              });
                      
        
                 }],
