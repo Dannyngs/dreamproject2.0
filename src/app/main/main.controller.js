@@ -55,6 +55,7 @@
         
           
           $scope.resultsShown=false;
+          $scope.moreData=false;
           $scope.resultText='APP_ANALYZING';
           
         if(UserService.isLoggedIn()){
@@ -535,10 +536,10 @@
                   
                   
                   
-                  
+                  $scope.moreData=true;
                   
                                   console.log('task2 done;')
-                                    //callback(null,2)
+                                   
               
               
                     },

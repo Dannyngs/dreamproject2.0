@@ -56,7 +56,7 @@
     APP_NOTBUY:"DON'T BUY",
     RECONMMENDED:'Recommended team : {{team}}(handicap)',
     HANDICAP:'(handicap)',
-   
+   MOREDATA:'Loading More Data...',
     TUTORIAL_TITLE:'TUTORIAL',
             takepicture:'*Please take the photo of receipt and send it to our company',
             APP_LOGIN:'Please log in to see the result',
@@ -102,7 +102,7 @@
       APP_NOTBUY:"不建議投注",
     RECONMMENDED:'建議投注 : {{team}}(讓球)',
     HANDICAP:'(讓球)',
-    
+    MOREDATA:'加載更多數據中...',
       TUTORIAL:'程式教學',
     TUTORIAL_TITLE:'程式教學',
       takepicture:'*入數後請拍照收據',
