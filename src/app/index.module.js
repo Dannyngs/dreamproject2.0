@@ -4,7 +4,7 @@
   angular
     .module('dreamproject20', ['ui.router', 'ui.bootstrap', 'toastr','chart.js','ipCookie','pascalprecht.translate','afkl.lazyImage'])
   .factory('SocketService',  function() {
-      var socket = io.connect('http://football-back-dev.ap-southeast-1.elasticbeanstalk.com/')
+      var socket = io.connect('http://deamprojectback.ap-southeast-1.elasticbeanstalk.com/')
 
 
         socket.on("connection",function(){
