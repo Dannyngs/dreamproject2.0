@@ -32,7 +32,7 @@
       
     
     
-      
+      /*
       CoreService.getMatches($translate.use())
                 .then(function(list){
          $scope.list=list;
@@ -42,7 +42,7 @@
           alert(error);
       });
 
-     
+     */
    
       
       
