@@ -61,7 +61,9 @@
             takepicture:'*Please take the photo of receipt and send it to our company',
             APP_LOGIN:'Please log in to see the result',
             APP_LOGGING_IN:'Loggin into your account, please wait...',
-            APP_LOGIN_FAILED:'Incorrect ID or password!'
+            APP_LOGIN_FAILED:'Incorrect ID or password!',
+               DATALOADING:'Loading Data... Please Wait!',
+
 
 
 
@@ -108,7 +110,9 @@
       takepicture:'*入數後請拍照收據',
       APP_LOGIN:'請先登入戶口',
             APP_LOGGING_IN:'正在登入，請稍後...',
-      APP_LOGIN_FAILED:'ID或密碼錯誤!'
+      APP_LOGIN_FAILED:'ID或密碼錯誤!',
+                     DATALOADING:'正在加載賽事，請稍等',
+
 
   });
   $translateProvider.preferredLanguage('chinese');

@@ -116,7 +116,7 @@
           
       }//end CoreService
       
-    })
+    })//Old Method to get race data
   .directive('lazy', function($timeout) {
               return {
                 restrict: 'C',
