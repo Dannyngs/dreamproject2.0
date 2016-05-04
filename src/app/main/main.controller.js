@@ -143,12 +143,39 @@
              
           
                             
-                            var max = [40.87,26.44,32.69,89.90];
-                            var max_ins=[40.87,26.44,32.69,89.90];
-                            var min =[20.87,16.44,12.69,69.90];
-                            var min_ins =[20.87,16.44,12.69,69.90];
-                            var avg = [30.87,36.44,54.44,79.20];
-                            var avg_ins = [30.87,36.44,54.44,79.20];
+                            var max = [(Math.random() * 50 + 40).toFixed(2), 
+                                       (Math.random() * 30 + 20).toFixed(2),
+                                       (Math.random() * 40 + 30).toFixed(2),
+                                       (Math.random() * 10 + 80).toFixed(2)
+                                      ];
+          
+                            var max_ins=[(Math.random() * 50 + 40).toFixed(2), 
+                                       (Math.random() * 30 + 20).toFixed(2),
+                                       (Math.random() * 40 + 30).toFixed(2),
+                                       (Math.random() * 10 + 80).toFixed(2)
+                                      ];  
+          
+                            var min =[(Math.random() * 25 + 20).toFixed(2), 
+                                       (Math.random() * 20 + 15).toFixed(2),
+                                       (Math.random() * 15 + 10).toFixed(2),
+                                       (Math.random() * 10 + 60).toFixed(2)
+                                      ]; 
+                            var min_ins =[(Math.random() * 25 + 20).toFixed(2), 
+                                       (Math.random() * 20 + 15).toFixed(2),
+                                       (Math.random() * 15 + 10).toFixed(2),
+                                       (Math.random() * 10 + 60).toFixed(2)
+                                      ];
+          
+                            var avg = [(Math.random() * 5 + 40).toFixed(2), 
+                                       (Math.random() * 10 + 30).toFixed(2),
+                                       (Math.random() * 5 + 20).toFixed(2),
+                                       (Math.random() * 10 + 70).toFixed(2)
+                                      ];
+                            var avg_ins = [(Math.random() * 5 + 40).toFixed(2), 
+                                       (Math.random() * 10 + 30).toFixed(2),
+                                       (Math.random() * 5 + 20).toFixed(2),
+                                       (Math.random() * 10 + 70).toFixed(2)
+                                      ];
               
                   if($translate.use()=='english'){
                          $scope.odds_max_lb = ["Home", "Draw", "Away", "Return"];
