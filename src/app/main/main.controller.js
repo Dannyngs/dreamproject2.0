@@ -33,7 +33,8 @@
         $http({
                   method: 'GET',
                   //url: 'http://deamprojectback.ap-southeast-1.elasticbeanstalk.com'
-              url:'http://deamprojectback.ap-southeast-1.elasticbeanstalk.com/footballRace/'+lang,
+            
+              url:'http://dreamprojet2back-env.ap-northeast-1.elasticbeanstalk.com/footballRace/'+lang,
                 }).then(
               function successCallback(rs){
               
@@ -257,7 +258,7 @@
                    $http({
                   method: 'POST',
                  // url: 'http://deamprojectback.ap-southeast-1.elasticbeanstalk.com/api/scores', 
-                       url:'http://dreamproject-tokyo-env.ap-northeast-1.elasticbeanstalk.com/api/scores',
+                       url:'http://dreamprojet2back-env.ap-northeast-1.elasticbeanstalk.com/api/scores',
                 data:{url:'http://score.nowscore.com/odds/match.aspx?id='+race.id}
                 }).then(
              function successCallback(rs) {
