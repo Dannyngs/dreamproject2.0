@@ -4,8 +4,8 @@
   angular
     .module('dreamproject20', ['ui.router', 'ui.bootstrap', 'toastr','chart.js','ipCookie','pascalprecht.translate','afkl.lazyImage'])
   .factory('SocketService',  function() {
-      var socket = io.connect('http://dreamprojet2back-env.ap-northeast-1.elasticbeanstalk.com/')
-
+    //  var socket = io.connect('http://dreamprojet2back-env.ap-northeast-1.elasticbeanstalk.com/')
+var socket = io.connect('http://localhost/')
 
         socket.on("connection",function(){
 
@@ -44,6 +44,7 @@
 			},
 			login: function(user) {
 				console.log('*LOGGED IN ***')
+        console.log(user)
                 $rootScope.current_user=user
 				ipCookie('current_user', user.username)
 
@@ -58,75 +59,85 @@
 
 			},
 			isLoggedIn: function() {
-                
+
                 return $rootScope.current_user||false
 			}
 		}
 
 	}])
   .factory('CoreService',function($q){
-      
+
       return {
           getMatches:function(curlang){
             var deferred = $q.defer();
             var promise = deferred.promise;
-              
+
                //Get Matches List
               require(['http://score.nowscore.com/data/bf.js?1456213905000','http://cdnjs.cloudflare.com/ajax/libs/seedrandom/2.4.0/seedrandom.min.js'],
                       function ($) {
-  
-                  
+
+
                   var raceList =Array();
                   if(curlang=='chinese')
                   {
                for(var i=0;i<A.length;i++)
     {
-        
+
         var race={id:A[i][0],home:A[i][5].replace("<font color=#880000>(中)</font>", ""),away:A[i][8],time:A[i][10],league:B[A[i][1]][2]}
           raceList.push(race);
-        } 
-               
+        }
+
            }
                   else
                   {
               for(var i=0;i<A.length;i++)
     {
-        
+
         var race={id:A[i][0],home:A[i][6].replace("<font color=#880000>(中)</font>", ""),away:A[i][9],time:A[i][10],league:B[A[i][1]][3]}
           raceList.push(race);
-        }  
-               
+        }
+
            }
-              
+
                deferred.resolve(raceList);
-              
-              
-              
-              
+
+
+
+
           },function(err){deferred.reject(err)});
-              
-             
-              
-              
-              
+
+
+
+
+
               return promise;
-              
-              
+
+
       }//end getMatches
-          
+
       }//end CoreService
-      
+
     })//Old Method to get race data
   .directive('lazy', function($timeout) {
               return {
                 restrict: 'C',
                 link: function (scope, elm, attrs) {
-                    $timeout(function() { $(elm).lazyload() }, 0); 
+                    $timeout(function() { $(elm).lazyload() }, 0);
                 }
               }
-            });//end CoreService Factory
+            })
+            .factory('authInterceptor', function ($rootScope, $q, $window,UserService) {
+  return {
+    request: function (config) {
+      config.headers = config.headers || {};
+      if (UserService.get()) {
+        config.headers.token = UserService.get().token;
+      }
+      return config;
+    }
+  }
+
+});;
 
 
-  
-  
   })();

@@ -6,7 +6,7 @@
     .config(config);
 
   /** @ngInject */
-  function config($logProvider, toastrConfig,$translateProvider) {
+  function config($logProvider, toastrConfig,$translateProvider,$httpProvider) {
     // Enable log
     $logProvider.debugEnabled(true);
 
@@ -15,11 +15,11 @@
     toastrConfig.timeOut = 3000;
     toastrConfig.positionClass = 'toast-top-right';
     toastrConfig.preventDuplicates = false;
-      
-      
-      
-      
-      
+       $httpProvider.interceptors.push('authInterceptor');
+
+
+
+
         $translateProvider.translations('english', {
     HOME: 'Home',
     ABOUT: 'ABOUT',
@@ -116,7 +116,7 @@
 
   });
   $translateProvider.preferredLanguage('chinese');
-      
+
   }
 
 })();

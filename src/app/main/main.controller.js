@@ -7,97 +7,115 @@
 
   /** @ngInject */
   function MainController($scope,$http,SocketService,UserService,$translate,CoreService,toastr) {
-   
-      
-    
-      var startday = new Date().setFullYear(2012,9,1); 
-      
-      var nowdate=(new Date()-startday)/1000/60/60/24; 
+
+
+
+      var startday = new Date().setFullYear(2012,9,1);
+
+      var nowdate=(new Date()-startday)/1000/60/60/24;
       $scope.runningDate=nowdate.toFixed(0);
       $scope.lang='En';
       $scope.dataPanelOpened=false;
       $scope.loginOpened=false;
-     //$scope.username='test123';
-     //$scope.password='123123';
+     $scope.username='Dreamproject02';
+     $scope.password='teddy123';
      $scope.line1_color=[ '#FDB45C','#DCDCDC', '#00ADF9', '#DCDCDC',  '#949FB1', '#4D5360'] ;
        $scope.line2_color=[  '#46BFBD','#DCDCDC','#803690', '#00ADF9', '#DCDCDC',  '#949FB1', '#4D5360'] ;
        $scope.line3_color=[  '#F44448','#DCDCDC','#803690', '#00ADF9', '#DCDCDC',  '#949FB1', '#4D5360'] ;
       $scope.loginmsg='APP_LOGIN';
        $scope.dataloading=true;
-     
-   
+
+$scope.testing=function(){
+
+  $http({method: 'GET',  url:'http://localhost/'}).then(
+function successCallback(rs){
+
+      console.log(rs.data);
+
+
+
+      },
+function errorCallback(response){
+
+  console.log(response);
+
+});
+}
+
+
+
    function getFootballRaces(lang){
-       
+
         $http({
                   method: 'GET',
-                  //url: 'http://deamprojectback.ap-southeast-1.elasticbeanstalk.com'
-            
-              url:'http://dreamprojet2back-env.ap-northeast-1.elasticbeanstalk.com/footballRace/'+lang,
+                  //url: 'dreamprojet2back-env.ap-northeast-1.elasticbeanstalk.com'
+
+              url:'http://localhost/footballRace/'+lang,
                 }).then(
               function successCallback(rs){
-              
+
                       $scope.list= rs.data;
                $scope.dataloading=false;
-              
-              
-              
+
+
+
                     },
               function errorCallback(response){
-                  
-               
+
+
               });
-       
+
    }
-      
-      
-      
+
+
+
       getFootballRaces($translate.use());
-      
-    
-    
-      
+
+
+
+
 //      CoreService.getMatches($translate.use())
 //                .then(function(list){
 //         $scope.list=list;
-//         
+//
 //      },
 //                      function(error){
 //          alert(error);
 //      });
 
-     
-   
-      
+
+
+
       //new method to analyze the race
       $scope.analyzeit=function(race){
-          
-          
-          
-        
-         
+
+
+
+
+
           $scope.resultsShown=false;
           $scope.moreData=false;
           $scope.resultText='APP_ANALYZING';
-          
-         
+
+
           //UserService.isLoggedIn()
         if(UserService.isLoggedIn()){
-        
+
               $scope.dataPanelOpened=true;
           }else{$scope.loginOpened=true;
                return;
                }
-        
+
           var loginDate=new Date();
            $scope.morse_code=Base64.encode(UserService.get().username);
           $scope.home=race.home;
          $scope.away=race.away;
-         
+
           $scope.time=race.time;
          $scope.labels = [race.home.split('[')[0],race.away.split('[')[0]];
           $scope.data = [0,0];
           $scope.odds_max_dt = [0,0];$scope.odds_avg_dt = [0,0];$scope.odds_min_dt = [0,0];
-          
+
           //decide which team will win
           Math.seedrandom(race.time)
           $scope.condition_negative=Math.floor(Math.random() * (4 - 1)) + 1;
@@ -111,12 +129,12 @@
                                 var homeRate = Math.random() * (100-51)+51;
                                 var awayRate=100-homeRate;
                                 $scope.data = [homeRate.toFixed(2),awayRate.toFixed(2)];
-                           
+
                               $scope.resultsShown = true;
-                            
+
                              $scope.recTeam=$scope.home;
                               $scope.resultText="RECONMMENDED";
-                                                          
+
 
                                 break;
                          }
@@ -130,7 +148,7 @@
                                   $scope.recTeam=$scope.away;
                                 $scope.resultText="RECONMMENDED";
 
-                                
+
                                 break;
                          }
                      default://Dont buy
@@ -139,143 +157,143 @@
                               $scope.data = [0,0];
                                break;
                          }
-                         
-                         
+
+
                  }
-             
-          
-                            
-                            var max = [(Math.random() * 50 + 40).toFixed(2), 
+
+
+
+                            var max = [(Math.random() * 50 + 40).toFixed(2),
                                        (Math.random() * 30 + 20).toFixed(2),
                                        (Math.random() * 40 + 30).toFixed(2),
                                        (Math.random() * 10 + 80).toFixed(2)
                                       ];
-          
-                            var max_ins=[(Math.random() * 50 + 40).toFixed(2), 
+
+                            var max_ins=[(Math.random() * 50 + 40).toFixed(2),
                                        (Math.random() * 30 + 20).toFixed(2),
                                        (Math.random() * 40 + 30).toFixed(2),
                                        (Math.random() * 10 + 80).toFixed(2)
-                                      ];  
-          
-                            var min =[(Math.random() * 25 + 20).toFixed(2), 
-                                       (Math.random() * 20 + 15).toFixed(2),
-                                       (Math.random() * 15 + 10).toFixed(2),
-                                       (Math.random() * 10 + 60).toFixed(2)
-                                      ]; 
-                            var min_ins =[(Math.random() * 25 + 20).toFixed(2), 
+                                      ];
+
+                            var min =[(Math.random() * 25 + 20).toFixed(2),
                                        (Math.random() * 20 + 15).toFixed(2),
                                        (Math.random() * 15 + 10).toFixed(2),
                                        (Math.random() * 10 + 60).toFixed(2)
                                       ];
-          
-                            var avg = [(Math.random() * 5 + 40).toFixed(2), 
+                            var min_ins =[(Math.random() * 25 + 20).toFixed(2),
+                                       (Math.random() * 20 + 15).toFixed(2),
+                                       (Math.random() * 15 + 10).toFixed(2),
+                                       (Math.random() * 10 + 60).toFixed(2)
+                                      ];
+
+                            var avg = [(Math.random() * 5 + 40).toFixed(2),
                                        (Math.random() * 10 + 30).toFixed(2),
                                        (Math.random() * 5 + 20).toFixed(2),
                                        (Math.random() * 10 + 70).toFixed(2)
                                       ];
-                            var avg_ins = [(Math.random() * 5 + 40).toFixed(2), 
+                            var avg_ins = [(Math.random() * 5 + 40).toFixed(2),
                                        (Math.random() * 10 + 30).toFixed(2),
                                        (Math.random() * 5 + 20).toFixed(2),
                                        (Math.random() * 10 + 70).toFixed(2)
                                       ];
-              
+
                   if($translate.use()=='english'){
                          $scope.odds_max_lb = ["Home", "Draw", "Away", "Return"];
                   $scope.series_max = ['Highest First Odds', 'Highest Odds'];
                        $scope.odds_min_lb = ["Home", "Draw", "Away", "Return"];
-                  $scope.series_min = ['Lowest First Odds', 'Lowest Odds'];  
+                  $scope.series_min = ['Lowest First Odds', 'Lowest Odds'];
                          $scope.odds_avg_lb = ["Home", "Draw", "Away", "Return"];
                   $scope.series_avg = ['Average First Odds', 'Average Odds'];
-                      
+
                   }else
                     {
                         $scope.odds_max_lb = ["主胜率", "和率", "客胜率", "返还率"];
                   $scope.series_max = ['初盘最高值', '即时最高值'];
                        $scope.odds_min_lb = ["主胜率", "和率", "客胜率", "返还率"];
-                  $scope.series_min = ['初盘最低值', '即时最低值'];  
+                  $scope.series_min = ['初盘最低值', '即时最低值'];
                          $scope.odds_avg_lb = ["主胜率", "和率", "客胜率", "返还率"];
                   $scope.series_avg = ['初盘平均值', '即时平均值'];
                     }
-                  
+
                   $scope.odds_max_dt = [
                                 [max[0],max[1],max[2],max[3]],
                                 [max_ins[0],max_ins[1],max_ins[2],max_ins[3]]
                             ];
-                  
-                 
+
+
                   $scope.odds_min_dt = [
                                 [min[0],min[1],min[2],min[3]],
                                 [min_ins[0],min_ins[1],min_ins[2],min_ins[3]]
                             ];
-                  
-                 
+
+
                   $scope.odds_avg_dt = [
                                 [avg[0],avg[1],avg[2],avg[3]],
                                 [avg_ins[0],avg_ins[1],avg_ins[2],avg_ins[3]]
                             ];
-                  
-                  
-                  
-                  $scope.moreData=true;
-                  
-                 
-         
 
-          
-          
+
+
+                  $scope.moreData=true;
+
+
+
+
+
+
   }
 
-      
+
       //old method to anayze the race
       $scope.getit=function(race){
-          
-          
-          
-        
-          
+
+
+
+
+
           $scope.resultsShown=false;
           $scope.moreData=false;
           $scope.resultText='APP_ANALYZING';
-          
+
         if(UserService.isLoggedIn()){
-        
+
               $scope.dataPanelOpened=true;
           }else{$scope.loginOpened=true;
                return;
                }
-        
-          
+
+
           $scope.home=race.home;
           $scope.away=race.away;
           $scope.time=race.time;
          $scope.labels = [$scope.home,$scope.away];
           $scope.data = [0,0];
           $scope.odds_max_dt = [0,0];$scope.odds_avg_dt = [0,0];$scope.odds_min_dt = [0,0];
-          
-          
+
+
           async.parallel([
                 function(callback){
-               
+
                    $http({
                   method: 'POST',
-                 // url: 'http://deamprojectback.ap-southeast-1.elasticbeanstalk.com/api/scores', 
+                 // url: 'http://deamprojectback.ap-southeast-1.elasticbeanstalk.com/api/scores',
                        url:'http://dreamprojet2back-env.ap-northeast-1.elasticbeanstalk.com/api/scores',
                 data:{url:'http://score.nowscore.com/odds/match.aspx?id='+race.id}
                 }).then(
              function successCallback(rs) {
-             
+
              var response=rs.data;
              console.log(response.name)
-            
+
              $scope.game_name = response.name
     		$scope.bet_names = Object.keys(response.data)
     		$scope.data = response.data
 
-            
-            
-            
-            
-           
+
+
+
+
+
             //******************Start Calculating  Result********************/
     		// disable SNAI and William
     		for( var i=0; i<18; i++ ) {
@@ -438,7 +456,7 @@
   	    	}
   	    })
 
-    		var sierra = function() {  			
+    		var sierra = function() {
     			var s = (sumFoxtrot/7 + sumJuliet/7)/2
     			return s
     		}
@@ -453,7 +471,7 @@
     		}
 
   		var sumMike = 0
-  	    $scope.bet_names.forEach(function(name, i) {	    	
+  	    $scope.bet_names.forEach(function(name, i) {
   	    	var m = mike($scope.data[name])
   	    	if (i<9) {
   	    		sumMike += m
@@ -590,14 +608,14 @@
 
     		var wufei = function() {
     			return trowa() - duo()
-    		}  		
+    		}
 
     		$scope.heero = heero()
     		$scope.duo = duo()
     		$scope.trowa = trowa()
     		$scope.quatre = quatre()
     		$scope.wufei = wufei()
-    		
+
     		console.log('Heero', heero())
     		console.log('Duo', duo())
     		console.log('Trowa', trowa())
@@ -626,7 +644,7 @@
 
         // don't buy by default
         $scope.condition_negative = "DON'T BUY"
-          
+
 
         //STEP 2 LOGIC
         // if the negative number is equal or less than -1, bet the opposite team
@@ -639,7 +657,7 @@
 
 
         $scope.min = Math.min($scope.quatre, $scope.wufei)
-      
+
         $scope.sign = $scope.min < -1 ? '<' : '>'
 
         //if STEP 1 busts, then don't buy
@@ -648,17 +666,17 @@
                        console.log('teslk1;'+$scope.condition_negative)
 
          callback(null,1)
-             
-             
-        
-             
-                  }, 
+
+
+
+
+                  },
               function errorCallback(response) {
-                     $scope.data = [0,0]; 
+                     $scope.data = [0,0];
                     $scope.resultText="APP_NO_DATA";
-                    
+
                   });
-                  
+
               },
                 function(callback){
                     callback(null,2);
@@ -666,10 +684,10 @@
                   method: 'GET',
                   //url: 'http://deamprojectback.ap-southeast-1.elasticbeanstalk.com'
               url:'http://dreamproject-tokyo-env.ap-northeast-1.elasticbeanstalk.com',
-              
+
                 }).then(
               function successCallback(rs){
-              
+
                             var data=rs.data;
                             var max = data.max;
                             var max_ins=data.max_ins;
@@ -677,58 +695,58 @@
                             var min_ins =data.min_ins;
                             var avg = data.avg;
                             var avg_ins = data.avg_ins;
-                            
-              
+
+
                   if($translate.use()=='english'){
                          $scope.odds_max_lb = ["Home", "Draw", "Away", "Return"];
                   $scope.series_max = ['Highest First Odds', 'Highest Odds'];
                        $scope.odds_min_lb = ["Home", "Draw", "Away", "Return"];
-                  $scope.series_min = ['Lowest First Odds', 'Lowest Odds'];  
+                  $scope.series_min = ['Lowest First Odds', 'Lowest Odds'];
                          $scope.odds_avg_lb = ["Home", "Draw", "Away", "Return"];
                   $scope.series_avg = ['Average First Odds', 'Average Odds'];
-                      
+
                   }else
                     {
                         $scope.odds_max_lb = ["主胜率", "和率", "客胜率", "返还率"];
                   $scope.series_max = ['初盘最高值', '即时最高值'];
                        $scope.odds_min_lb = ["主胜率", "和率", "客胜率", "返还率"];
-                  $scope.series_min = ['初盘最低值', '即时最低值'];  
+                  $scope.series_min = ['初盘最低值', '即时最低值'];
                          $scope.odds_avg_lb = ["主胜率", "和率", "客胜率", "返还率"];
                   $scope.series_avg = ['初盘平均值', '即时平均值'];
                     }
-                  
+
                   $scope.odds_max_dt = [
                                 [max[3],max[4],max[5],max[6]],
                                 [max_ins[3],max_ins[4],max_ins[5],max_ins[6]]
                             ];
-                  
-                 
+
+
                   $scope.odds_min_dt = [
                                 [min[3],min[4],min[5],min[6]],
                                 [min_ins[3],min_ins[4],min_ins[5],min_ins[6]]
                             ];
-                  
-                 
+
+
                   $scope.odds_avg_dt = [
                                 [avg[3],avg[4],avg[5],avg[6]],
                                 [avg_ins[3],avg_ins[4],avg_ins[5],avg_ins[6]]
                             ];
-                  
-                  
-                  
+
+
+
                   $scope.moreData=true;
-                  
+
                                   console.log('task2 done;')
-                                   
-              
-              
+
+
+
                     },
               function errorCallback(response){
-                  
-                //$scope.resultText="APP_NO_DATA";  
+
+                //$scope.resultText="APP_NO_DATA";
               });
-                     
-       
+
+
                 }],
                 function(error,results){
                 console.log('resulting;'+$scope.condition_negative)
@@ -741,12 +759,12 @@
                                 var homeRate = Math.random() * (100-51)+51;
                                 var awayRate=100-homeRate;
                                 $scope.data = [homeRate.toFixed(2),awayRate.toFixed(2)];
-                           
+
                               $scope.resultsShown = true;
-                            
+
                              $scope.recTeam=$scope.home;
                               $scope.resultText="RECONMMENDED";
-                                                          
+
 
                                 break;
                          }
@@ -760,7 +778,7 @@
                                   $scope.recTeam=$scope.away;
                                 $scope.resultText="RECONMMENDED";
 
-                                
+
                                 break;
                          }
                      case "DON'T BUY":
@@ -769,64 +787,64 @@
                               $scope.data = [0,0];
                                break;
                          }
-                         
-                         
-                 }
-             
-                
-            });
-          
-          
-        
-                 
-         
 
-          
-          
+
+                 }
+
+
+            });
+
+
+
+
+
+
+
+
   }
 
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
+
+
+
+
+
+
+
+
+
+
+
+
       $scope.closeDataPanel=function(){
          $scope.dataPanelOpened=false;
- 
+
       }
-      
+
       $scope.closeLoginPanel=function(){
-          
+
          $scope.loginOpened=false;
-          
- 
+
+
       }
-      
+
       $scope.openLoginPanel=function(){
-          
+
            $scope.loginOpened=true;
       }
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         SocketService.logoutfailed(function(res){
 
                 toastr.error(res)
@@ -840,9 +858,9 @@
             })
         SocketService.loginfailed(function(res){
             console.log(res)
-            
+
             $scope.loginmsg=res.msg=='Incorrect login infomation'?'APP_LOGIN_FAILED':res.msg;
-            
+
                        $scope.$apply()
 
 
@@ -853,7 +871,7 @@
                     $scope.loginOpened=false;
                     toastr.success('登入成功！','Login Succeeded')
             $scope.$apply()
-                    
+
             })
         $scope.UserLogout = function() {
 
@@ -866,26 +884,26 @@
         $scope.loginmsg='APP_LOGGING_IN';
        SocketService.emit("login",{ username: u, password: p })
 
-                   
-                             
-        
-       
-    
-    
-    
-    
-    
-    
+
+
+
+
+
+
+
+
+
+
     }
-       
+
         $scope.changeLanguage = function () {
                 $scope.lang=$translate.use()=='english'?'En':'中';
                 $translate.use($translate.use()=='english'?'chinese':'english');
-            
+
 //              CoreService.getMatches($translate.use())
 //                .then(function(list){
 //                  $scope.list=list;
-//         
+//
 //      },
 //                      function(error){
 //          alert(error);
@@ -893,15 +911,15 @@
  getFootballRaces($translate.use());
                 $scope.dataloading=true;
 
-           
+
         };
         $scope.getCurLang = function(){
              return $translate.use();
         };
 
-      
-      
-      
+
+
+
       var Base64 = {
 
 
@@ -1033,23 +1051,21 @@
     }
 
 }
-    
-    
-      
-      
-      
-      
-      
-      
-      
+
+
+
+
+
+
+
+
+
   }
-    
-    
-    
-    
-    
-    
-    
+
+
+
+
+
+
+
 })();
-
-
