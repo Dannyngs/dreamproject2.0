@@ -48,9 +48,8 @@ function errorCallback(response){
 
         $http({
                   method: 'GET',
-                  //url: 'dreamprojet2back-env.ap-northeast-1.elasticbeanstalk.com'
 
-              url:'http://localhost/footballRace/'+lang,
+              url:'http://dreamprojet2back-env.ap-northeast-1.elasticbeanstalk.com/footballRace/'+lang,
                 }).then(
               function successCallback(rs){
 
