@@ -1724,7 +1724,7 @@ section .half-overlay.is-visible{
 
 /*-- 5.2.3 WORKS SECTION --*/
 .works-section{
-	left:300%;
+	left:400%;
 }
 .works-section .bg-container-static{
 	background:url(../img/back.jpg) no-repeat;
@@ -1905,7 +1905,7 @@ section .half-overlay.is-visible{
 
 /*-- 5.2.4 CONTACT SECTION --*/
 .contact-section{
-	left:500%;
+	left:600%;
 }
 .simple .contact-section{
 	left:100%;
@@ -2531,10 +2531,14 @@ a:focus{
     text-decoration: none;
 }
 .terms-section{
-    left:400%;
+    left:500%;
 }
 .tutorial-section{
     left:200%;
+}
+.record-section{
+     left:300%!important;
+    
 }
 .terms-section .bg-container-static {
     background: url(../img/back.jpg) no-repeat;
